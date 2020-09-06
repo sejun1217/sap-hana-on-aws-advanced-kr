@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Sejun Kim">
+
+    <link rel="icon" href="/saponaws400/images/favicon.png" type="image/png">
+
+    <title>Lab 01. Setup S4HANA Cluster :: SAP HANA on AWS Advanced WorkShop</title>
+
+    
+    <link href="/saponaws400/css/nucleus.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/fontawesome-all.min.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/hybrid.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/featherlight.min.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/perfect-scrollbar.min.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/auto-complete.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/atom-one-dark-reasonable.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/theme.css?1599411203" rel="stylesheet">
+    <link href="/saponaws400/css/hugo-theme.css?1599411203" rel="stylesheet">
+    
+      <link href="/saponaws400/css/theme-aws.css?1599411203" rel="stylesheet">
+    
+
+    <script src="/saponaws400/js/jquery-3.3.1.min.js?1599411203"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/saponaws400/lab1/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/saponaws400/">
+	<img src="/saponaws400/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/saponaws400/js/lunr.min.js?1599411203"></script>
+<script type="text/javascript" src="/saponaws400/js/auto-complete.js?1599411203"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/saponaws400\/";
+    
+</script>
+<script type="text/javascript" src="/saponaws400/js/search.js?1599411203"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/saponaws400/intro/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/saponaws400/intro/">
+          <b>1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/saponaws400/lab1/" title="Lab 01. Setup S4HANA Cluster" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/saponaws400/lab1/">
+          <b>2. </b>Lab 01. Setup S4HANA Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/saponaws400/lab2/" title="Lab 02. Cluster Monitoring and Maintenance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/saponaws400/lab2/">
+          <b>3. </b>Lab 02. Cluster Monitoring and Maintenance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/saponaws400/lab3/" title="Lab 03. Testing DB Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/saponaws400/lab3/">
+          <b>4. </b>Lab 03. Testing DB Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/saponaws400/lab4/" title="Lab 04. Config Cost Optimized Scenario" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/saponaws400/lab4/">
+          <b>5. </b>Lab 04. Config Cost Optimized Scenario
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="/saponaws400/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credit</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2019 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/saponaws400/'>홈</a> > Lab 01. Setup S4HANA Cluster
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Lab 01. Setup S4HANA Cluster
+            </h1>
+          
+
+        
+
+
+
+
+	<h4 id="lab-설명">Lab 설명</h4>
+
+<div class="notices note" ><p><em><strong>S4HANA Quick Starts를 이용하여 S4HANA High Availability Architecture를 손쉽게 구성합니다.</strong></em></p>
+</div>
+
+<hr>
+<h4 id="lab-architecture">Lab Architecture</h4>
+<p><img src="images/01.png" alt="image01"></p>
+<hr>
+<h4 id="사전작업--key-pair-생성">사전작업 : Key Pair 생성</h4>
+<p>HANA Database 및 Application Servers 에 접속하기 위한 Key Pair 를 생성 합니다.</p>
+<ol>
+<li>AWS Management Console에 로그인 한 뒤 <a href="https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#KeyPairs:">Key Pairs Console</a> 서비스에 접속합니다.</li>
+<li><strong>Create key pair</strong> 버튼을 누릅니다.
+<img src="images/02.png" alt="image02"></li>
+<li>Name은 <strong>SAP-ImmersionDay-Lab</strong> 라고 입력 후 <strong>Create key pair</strong> 버튼을 누릅니다.</li>
+<li>이번 WorkShop은 Session Manager를 통해 EC2 인스턴스에 접속할 예정입니다. 다운로드 된 키는 안전한 위치에 보관합니다.
+<img src="images/03.png" alt="image03"></li>
+</ol>
+<hr>
+<h4 id="s4hana-quick-starts-접속">S4HANA Quick Starts 접속</h4>
+<p>Lab 전체에서 사용할 S4HANA 를 설치합니다. Quick Starts for S4HANA 는 설치를 위한 다양한 옵션이 있습니다. 본 실습은 새로운 VPC에 HANA Database를 Multi-AZ 기반으로 구성하고, 접속을 테스트를 위한 ASCS, PAS를 각각 1대씩 설치합니다. Quick Starts for S4HANA에 대한 자세한 사항은 옆 링크를 참고하시기 바랍니다.(<a href="https://docs.aws.amazon.com/quickstart/latest/sap-s4-hana/welcome.html">S4HANA on AWS : Quick Starts Deployment Guide</a>)</p>
+<ol>
+<li>
+<p>AWS Management Console에 로그인 한 뒤 <a href="https://fwd.aws/qAa8J">Quick Starts for S4HANA</a> 서비스에 접속합니다.</p>
+</li>
+<li>
+<p>리전을 <strong>Asia Pacific(Seoul)</strong> 로 변경합니다. 그리고 <strong>Next</strong> 버튼을 선택합니다.
+<img src="images/04.png" alt="image04"></p>
+</li>
+<li>
+<p>Stack name은 이전에 사용했던 name과 동일하지 않는한 변경하지 않습니다.</p>
+</li>
+<li>
+<p><strong>Step2.Specify stack details</strong> 은 S4HANA 설치를 위한 VPC, SAP HANA, SAP S/4HANA ABAB Cluster 설정 옵션을 입력하는 단계입니다.</p>
+</li>
+<li>
+<p><strong>Step2.1 VPC network configuration</strong> 은 VPC 설정 옵션을 아래와 같이 업데이트 합니다.</p>
+<ul>
+<li><strong>Availability Zones(선택)</strong> : ap-northeast-2a, ap-northeast-2c</li>
+<li><strong>VPC CIDR</strong> : 10.0.0.0/16</li>
+<li><strong>Private subnet 1 CIDR</strong> : 10.0.1.0/24</li>
+<li><strong>Private subnet 2 CIDR</strong> : 10.0.2.0/24</li>
+<li><strong>Public subnet 1 CIDR</strong> : 10.0.11.0/24</li>
+<li><strong>Public subnet 2 CIDR</strong> : 10.0.12.0/24
+<img src="images/05.png" alt="image05"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.2 SAP HANA database server and storage configuration</strong> 은 SAP HANA Database 설정 옵션을 아래와 업데이트 합니다.</p>
+<ul>
+<li><strong>Implement HANA for High Availability(선택)</strong> : Yes</li>
+<li><strong>SAP HANA server host name</strong> : s4hdbmas</li>
+<li><strong>SAP HANA HA server host name for Secondary node (i.e. siddbsec)</strong> : s4hdbsec</li>
+<li><strong>SAP HANA database host count</strong> : 2</li>
+<li><strong>HANA database system ID</strong> : S4H</li>
+<li><strong>SAP HANA DB &amp; S/4HANA ABAP password</strong> : Init12345</li>
+<li><strong>S3 bucket for HANA database software</strong> : ( e.g s3://sap-immsersionday-hol1/hanadb/ )</li>
+<li><strong>SSH key pair(선택)</strong> : SAP-ImmersionDay-Lab
+<img src="images/06.png" alt="image06">
+<img src="images/07.png" alt="image07"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.3 SAP HANA database server and storage configuration</strong> 은 SAP S/4HANA ABAP cluster 설정 옵션을 아래와 업데이트 합니다.</p>
+<ul>
+<li><strong>Route 53 private hosted zone</strong> : awssap.co.kr</li>
+<li><strong>EFS for /sapmnt(선택)</strong> : Yes</li>
+<li><strong>SAP ASCS server virtual name</strong> : s4hasc00</li>
+<li><strong>SAP ASCS instance type</strong> : r5.xlarge</li>
+<li><strong>SAP PAS server host name</strong> : s4hpas00</li>
+<li><strong>PAS EC2 automatic recovery(선택)</strong> : No</li>
+<li><strong>S3 bucket for SAP S/4HANA software</strong> : (e.g sap-immsersionday-hol1)</li>
+<li><strong>S3 key prefix for SAP S/4HANA software</strong> : (e.g quickstart-sap-s4-hana)
+<img src="images/08.png" alt="image08">
+<img src="images/09.png" alt="image09"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.4 SAP S/4HANA Additional Application Server setup and configuration</strong> AAS 서버는 사용하지 않을 계획이므로 Skip 합니다</p>
+</li>
+<li>
+<p><strong>Step2.5 Optional configuration</strong> RDP 및 Bastion 설정은 Lab02에서 다룰 예정이므로 <strong>No</strong> 로 변경합니다.</p>
+</li>
+<li>
+<p><strong>Step2.5 AWS Quick Start configuration</strong> 은 Default 설정을 사용합니다 <strong>Next</strong> 버튼을 선택합니다.
+<img src="images/10.png" alt="image10"></p>
+</li>
+<li>
+<p><strong>Step3.Configure stack options</strong> 은 Stack 실행 옵션을 설정하는 단계 입니다.</p>
+</li>
+<li>
+<p>Error 발생 시 원활한 Trouble Shooting을 위해 Rollback 옵션을 <strong>Disabled</strong> 로 변경합니다. 그리고 <strong>Next</strong> 버튼을 선택합니다.
+<img src="images/11.png" alt="image11"></p>
+</li>
+<li>
+<p><strong>Step4.Review</strong> 은 이전 설정을 확인하는 단계 입니다. 제일 하단 <strong>Capabilities</strong> 의 두 체크 Box를 선택 후 <strong>Create stack</strong> 버튼을 선택합니다.
+<img src="images/12.png" alt="image12"></p>
+</li>
+<li>
+<p><strong>SAP-S4-HANA</strong> 스택이 생성 되었습니다. Status가 <strong>CREATE_COMPLETE</strong> 가 될 때 까지 기다립니다.
+<img src="images/13.png" alt="image13"></p>
+</li>
+</ol>
+
+<div class="notices warning" ><p><em><strong>Error 가 발생했을 경우 진행하고 있는 Solutions Architect에게 문의 합니다.</strong></em></p>
+</div>
+
+<hr>
+
+<div class="notices note" ><p><em><strong>Lab01 실습이 종료 되었습니다. 다음은 Lab02를 진행합니다.</strong></em></p>
+</div>
+
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/saponaws400/intro/" title="Introduction"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/saponaws400/lab2/" title="Lab 02. Cluster Monitoring and Maintenance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/saponaws400/js/clipboard.min.js?1599411203"></script>
+    <script src="/saponaws400/js/perfect-scrollbar.min.js?1599411203"></script>
+    <script src="/saponaws400/js/perfect-scrollbar.jquery.min.js?1599411203"></script>
+    <script src="/saponaws400/js/jquery.sticky.js?1599411203"></script>
+    <script src="/saponaws400/js/featherlight.min.js?1599411203"></script>
+    <script src="/saponaws400/js/highlight.pack.js?1599411203"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/saponaws400/js/modernizr.custom-3.6.0.js?1599411203"></script>
+    <script src="/saponaws400/js/learn.js?1599411203"></script>
+    <script src="/saponaws400/js/hugo-learn.js?1599411203"></script>
+
+    <link href="/saponaws400/mermaid/mermaid.css?1599411203" rel="stylesheet" />
+    <script src="/saponaws400/mermaid/mermaid.js?1599411203"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
