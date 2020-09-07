@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Lab 01. Setup S4HANA Cluster :: SAP HANA on AWS Advanced WorkShop</title>
+    <title>Lab 01. Setup SAP HANA Cluster :: SAP HANA on AWS Advanced WorkShop</title>
 
     
-    <link href="/css/nucleus.css?1599411478" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1599411478" rel="stylesheet">
-    <link href="/css/hybrid.css?1599411478" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1599411478" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1599411478" rel="stylesheet">
-    <link href="/css/auto-complete.css?1599411478" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1599411478" rel="stylesheet">
-    <link href="/css/theme.css?1599411478" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1599411478" rel="stylesheet">
+    <link href="/css/nucleus.css?1599497196" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1599497196" rel="stylesheet">
+    <link href="/css/hybrid.css?1599497196" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1599497196" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1599497196" rel="stylesheet">
+    <link href="/css/auto-complete.css?1599497196" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1599497196" rel="stylesheet">
+    <link href="/css/theme.css?1599497196" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1599497196" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1599411478" rel="stylesheet">
+      <link href="/css/theme-aws.css?1599497196" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1599411478"></script>
+    <script src="/js/jquery-3.3.1.min.js?1599497196"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1599411478"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1599411478"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1599497196"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1599497196"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1599411478"></script>
+<script type="text/javascript" src="/js/search.js?1599497196"></script>
 
     
   </div>
@@ -101,13 +101,13 @@
  
   
     
-    <li data-nav-id="/lab1/" title="Lab 01. Setup S4HANA Cluster" class="dd-item 
+    <li data-nav-id="/lab1/" title="Lab 01. Setup SAP HANA Cluster" class="dd-item 
         parent
         active
         
         ">
       <a href="/lab1/">
-          <b>2. </b>Lab 01. Setup S4HANA Cluster
+          <b>2. </b>Lab 01. Setup SAP HANA Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -258,7 +258,7 @@
             
           
           
-            <a href='/'>홈</a> > Lab 01. Setup S4HANA Cluster
+            <a href='/'>홈</a> > Lab 01. Setup SAP HANA Cluster
           
          
           
@@ -293,7 +293,7 @@
           
             <h1>
               
-              Lab 01. Setup S4HANA Cluster
+              Lab 01. Setup SAP HANA Cluster
             </h1>
           
 
@@ -304,7 +304,7 @@
 
 	<h4 id="lab-설명">Lab 설명</h4>
 
-<div class="notices note" ><p><em><strong>S4HANA Quick Starts를 이용하여 S4HANA High Availability Architecture를 손쉽게 구성합니다.</strong></em></p>
+<div class="notices note" ><p><em><strong>SAP HANA Quick Starts를 이용하여 SAP HANA High Availability Architecture를 손쉽게 구성합니다.</strong></em></p>
 </div>
 
 <hr>
@@ -314,7 +314,7 @@
 <h4 id="사전작업--key-pair-생성">사전작업 : Key Pair 생성</h4>
 <p>HANA Database 및 Application Servers 에 접속하기 위한 Key Pair 를 생성 합니다.</p>
 <ol>
-<li>AWS Management Console에 로그인 한 뒤 <a href="https://ap-northeast-2.console.aws.amazon.com/ec2/v2/home?region=ap-northeast-2#KeyPairs:">Key Pairs Console</a> 서비스에 접속합니다.</li>
+<li>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:">Key Pairs Console</a> 서비스에 접속합니다.</li>
 <li><strong>Create key pair</strong> 버튼을 누릅니다.
 <img src="images/02.png" alt="image02"></li>
 <li>Name은 <strong>SAP-ImmersionDay-Lab</strong> 라고 입력 후 <strong>Create key pair</strong> 버튼을 누릅니다.</li>
@@ -323,13 +323,13 @@
 </ol>
 <hr>
 <h4 id="s4hana-quick-starts-접속">S4HANA Quick Starts 접속</h4>
-<p>Lab 전체에서 사용할 S4HANA 를 설치합니다. Quick Starts for S4HANA 는 설치를 위한 다양한 옵션이 있습니다. 본 실습은 새로운 VPC에 HANA Database를 Multi-AZ 기반으로 구성하고, 접속을 테스트를 위한 ASCS, PAS를 각각 1대씩 설치합니다. Quick Starts for S4HANA에 대한 자세한 사항은 옆 링크를 참고하시기 바랍니다.(<a href="https://docs.aws.amazon.com/quickstart/latest/sap-s4-hana/welcome.html">S4HANA on AWS : Quick Starts Deployment Guide</a>)</p>
+<p>Lab 전체에서 사용할 S4HANA 를 설치합니다. Quick Starts for S4HANA 는 설치를 위한 다양한 옵션이 있습니다. 본 실습은 새로운 VPC에 HANA Database를 Multi-AZ 기반으로 구성하고, 접속을 테스트를 위한 ASCS, PAS를 각각 1대씩 설치합니다. Quick Starts for S4HANA에 대한 자세한 사항은 옆 링크를 참고하시기 바랍니다.(<a href="https://docs.aws.amazon.com/quickstart/latest/sap-hana/welcome.html">SAP HANA Quick Start Guide</a>)</p>
 <ol>
 <li>
-<p>AWS Management Console에 로그인 한 뒤 <a href="https://fwd.aws/qAa8J">Quick Starts for S4HANA</a> 서비스에 접속합니다.</p>
+<p>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=SAP-HANA-HA&amp;templateURL=https://aws-quickstart.s3.amazonaws.com/quickstart-sap-hana-ha/templates/SAP_HANA_HA_Master_New_VPC.yaml">Quick Starts for SAP HANA</a> 서비스에 접속합니다.</p>
 </li>
 <li>
-<p>리전을 <strong>Asia Pacific(Seoul)</strong> 로 변경합니다. 그리고 <strong>Next</strong> 버튼을 선택합니다.
+<p>리전이 <strong>US East(N.Virginia)</strong> 인지 확인 합니다. 그리고 <strong>Next</strong> 버튼을 선택합니다.
 <img src="images/04.png" alt="image04"></p>
 </li>
 <li>
@@ -339,55 +339,62 @@
 <p><strong>Step2.Specify stack details</strong> 은 S4HANA 설치를 위한 VPC, SAP HANA, SAP S/4HANA ABAB Cluster 설정 옵션을 입력하는 단계입니다.</p>
 </li>
 <li>
-<p><strong>Step2.1 VPC network configuration</strong> 은 VPC 설정 옵션을 아래와 같이 업데이트 합니다.</p>
+<p><strong>Step2.1 Network infrastructure configuration</strong> 옵션은 아래와 같이 입력 합니다.</p>
 <ul>
-<li><strong>Availability Zones(선택)</strong> : ap-northeast-2a, ap-northeast-2c</li>
-<li><strong>VPC CIDR</strong> : 10.0.0.0/16</li>
-<li><strong>Private subnet 1 CIDR</strong> : 10.0.1.0/24</li>
-<li><strong>Private subnet 2 CIDR</strong> : 10.0.2.0/24</li>
-<li><strong>Public subnet 1 CIDR</strong> : 10.0.11.0/24</li>
-<li><strong>Public subnet 2 CIDR</strong> : 10.0.12.0/24
+<li>VPC CIDR(default) : 10.0.0.0/16</li>
+<li><strong>Availability Zones for subnet creation(선택)</strong> : us-east-1a, us-east-1b</li>
+<li>CIDR block for Private subnet 1(default) : 10.0.1.0/24</li>
+<li>CIDR block for Private subnet 2(default) : 10.0.2.0/24</li>
+<li>Enter CIDR block for Public subnet 1(default) : 10.0.3.0/24</li>
+<li>Enter CIDR block for Public subnet 2(default) : 10.0.4.0/24
 <img src="images/05.png" alt="image05"></li>
 </ul>
 </li>
 <li>
-<p><strong>Step2.2 SAP HANA database server and storage configuration</strong> 은 SAP HANA Database 설정 옵션을 아래와 업데이트 합니다.</p>
+<p><strong>Step2.2 Server and storage configuration</strong> 옵션은 아래와 같이 입력 합니다.</p>
 <ul>
-<li><strong>Implement HANA for High Availability(선택)</strong> : Yes</li>
-<li><strong>SAP HANA server host name</strong> : s4hdbmas</li>
-<li><strong>SAP HANA HA server host name for Secondary node (i.e. siddbsec)</strong> : s4hdbsec</li>
-<li><strong>SAP HANA database host count</strong> : 2</li>
-<li><strong>HANA database system ID</strong> : S4H</li>
-<li><strong>SAP HANA DB &amp; S/4HANA ABAP password</strong> : Init12345</li>
-<li><strong>S3 bucket for HANA database software</strong> : ( e.g s3://sap-immsersionday-hol1/hanadb/ )</li>
-<li><strong>SSH key pair(선택)</strong> : SAP-ImmersionDay-Lab
-<img src="images/06.png" alt="image06">
+<li><strong>Choose operating system for SAP HANA</strong> : SuSELinux12SP4ForSAP-BYOS</li>
+<li><strong>Enter SUSE BYOS Registration Code</strong> : 5636D3C2B4D19CD4</li>
+<li>Choose instance type for SAP HANA : r5.4xlarge</li>
+<li>Enter Dedicated Host ID :</li>
+<li><strong>Choose key pair</strong> : SAP-ImmersionDay-Lab</li>
+<li>Choose storage volume type for SAP HANA Log : gp2</li>
+<li>Choose storage volume type for SAP HANA Data : gp2</li>
+<li>Would you like to turn on encryption? : no
+<img src="images/06.png" alt="image06"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.3 SAP HANA database configuration</strong> 옵션은 아래와 같이 입력 합니다.</p>
+<ul>
+<li>Enter domain name : local</li>
+<li>Enter SAP HANA Primary host name : prihana</li>
+<li>Enter SAP HANA Secondary host name : sechana</li>
+<li>Enter SAP HANA system ID : HDB</li>
+<li>Enter SAP HANA instance number : 00</li>
+<li><strong>Enter SAP HANA password</strong> : Init12345!</li>
+<li>Enter SAP HANA Server timezone : UC</li>
+<li><strong>Enter Amazon S3 URL for SAP HANA software</strong> : (e.g s3://sap-immsersionday-hol1/hanadb/)</li>
+<li>Install SAP HANA software? : Yes
 <img src="images/07.png" alt="image07"></li>
 </ul>
 </li>
 <li>
-<p><strong>Step2.3 SAP HANA database server and storage configuration</strong> 은 SAP S/4HANA ABAP cluster 설정 옵션을 아래와 업데이트 합니다.</p>
+<p><strong>Step2.4 SAP HANA High Availability configuration</strong> 옵션은 기본 설정 그대로 사용합니다.</p>
 <ul>
-<li><strong>Route 53 private hosted zone</strong> : awssap.co.kr</li>
-<li><strong>EFS for /sapmnt(선택)</strong> : Yes</li>
-<li><strong>SAP ASCS server virtual name</strong> : s4hasc00</li>
-<li><strong>SAP ASCS instance type</strong> : r5.xlarge</li>
-<li><strong>SAP PAS server host name</strong> : s4hpas00</li>
-<li><strong>PAS EC2 automatic recovery(선택)</strong> : No</li>
-<li><strong>S3 bucket for SAP S/4HANA software</strong> : (e.g sap-immsersionday-hol1)</li>
-<li><strong>S3 key prefix for SAP S/4HANA software</strong> : (e.g quickstart-sap-s4-hana)
-<img src="images/08.png" alt="image08">
-<img src="images/09.png" alt="image09"></li>
+<li>HANA Primary Site Name : HAP</li>
+<li>HANA Secondary Site Name : HAS</li>
+<li>Overlay IP Address : 192.168.1.99</li>
+<li>Pacemaker Tag Name : PaceTag
+<img src="images/08.png" alt="image08"></li>
 </ul>
 </li>
 <li>
-<p><strong>Step2.4 SAP S/4HANA Additional Application Server setup and configuration</strong> AAS 서버는 사용하지 않을 계획이므로 Skip 합니다</p>
+<p><strong>Step2.5 Optional configuration</strong> RDP 및 Bastion 설정은 Lab02에서 다룰 예정이므로 변경없이 <strong>No</strong> 로 선택합니다. 나머지 옵션은 Skip 합니다.
+<img src="images/09.png" alt="image09"></p>
 </li>
 <li>
-<p><strong>Step2.5 Optional configuration</strong> RDP 및 Bastion 설정은 Lab02에서 다룰 예정이므로 <strong>No</strong> 로 변경합니다.</p>
-</li>
-<li>
-<p><strong>Step2.5 AWS Quick Start configuration</strong> 은 Default 설정을 사용합니다 <strong>Next</strong> 버튼을 선택합니다.
+<p><strong>Step2.6 Advanced configuration (Do not modify unless directed by AWS Support)</strong> 은 Default 설정을 사용합니다 <strong>Next</strong> 버튼을 선택합니다.
 <img src="images/10.png" alt="image10"></p>
 </li>
 <li>
@@ -402,8 +409,9 @@
 <img src="images/12.png" alt="image12"></p>
 </li>
 <li>
-<p><strong>SAP-S4-HANA</strong> 스택이 생성 되었습니다. Status가 <strong>CREATE_COMPLETE</strong> 가 될 때 까지 기다립니다.
-<img src="images/13.png" alt="image13"></p>
+<p><strong>SAP-HANA-HA</strong> 스택이 생성 되었습니다. Status가 <strong>CREATE_COMPLETE</strong> 가 될 때 까지 기다립니다.
+<img src="images/13.png" alt="image13">
+<img src="images/14.png" alt="image14"></p>
 </li>
 </ol>
 
@@ -561,19 +569,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1599411478"></script>
-    <script src="/js/perfect-scrollbar.min.js?1599411478"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1599411478"></script>
-    <script src="/js/jquery.sticky.js?1599411478"></script>
-    <script src="/js/featherlight.min.js?1599411478"></script>
-    <script src="/js/highlight.pack.js?1599411478"></script>
+    <script src="/js/clipboard.min.js?1599497196"></script>
+    <script src="/js/perfect-scrollbar.min.js?1599497196"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1599497196"></script>
+    <script src="/js/jquery.sticky.js?1599497196"></script>
+    <script src="/js/featherlight.min.js?1599497196"></script>
+    <script src="/js/highlight.pack.js?1599497196"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1599411478"></script>
-    <script src="/js/learn.js?1599411478"></script>
-    <script src="/js/hugo-learn.js?1599411478"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1599497196"></script>
+    <script src="/js/learn.js?1599497196"></script>
+    <script src="/js/hugo-learn.js?1599497196"></script>
 
-    <link href="/mermaid/mermaid.css?1599411478" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1599411478"></script>
+    <link href="/mermaid/mermaid.css?1599497196" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1599497196"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
