@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Sejun Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Task 03. HAWK(High Availability Web Konsole) :: SAP HANA on AWS Advanced WorkShop</title>
+
+    
+    <link href="/css/nucleus.css?1599598667" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1599598667" rel="stylesheet">
+    <link href="/css/hybrid.css?1599598667" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1599598667" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1599598667" rel="stylesheet">
+    <link href="/css/auto-complete.css?1599598667" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1599598667" rel="stylesheet">
+    <link href="/css/theme.css?1599598667" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1599598667" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1599598667" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1599598667"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/lab2/lab2-3/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1599598667"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1599598667"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1599598667"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/intro/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/intro/">
+          <b>1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/" title="Lab 01. Setup SAP HANA Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/">
+          <b>2. </b>Lab 01. Setup SAP HANA Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/lab1-1/" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/lab1-1/">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/" title="Lab 02. Cluster Monitoring and Maintenance" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/lab2/">
+          <b>3. </b>Lab 02. Cluster Monitoring and Maintenance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-1/" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-1/">
+          <b> </b>Task 01. Verify Created Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-2/" title="Task 02. Connect to Overlay IP" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-2/">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/lab2/lab2-3/">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/" title="Lab 03. Testing DB Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/">
+          <b>4. </b>Lab 03. Testing DB Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/" title="Lab 04. Config Cost Optimized Scenario" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/">
+          <b>5. </b>Lab 04. Config Cost Optimized Scenario
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://master.d24ltnpdigr6ti.amplifyapp.com/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credit</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2019 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab2/'>Lab 02. Cluster Monitoring and Maintenance</a> > Task 03. HAWK(High Availability Web Konsole)
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Task 03. HAWK(High Availability Web Konsole)
+            </h1>
+          
+
+        
+
+
+
+
+	
+<div class="notices note" ><p>HAWK(High Availability Web Konsole)에 접속하여 HANA DB의 Cluster 상태를  Web 화면으로 확인하실 수 있습니다.</p>
+</div>
+
+<ol>
+<li>원격접속 프로그램을 사용하여 Bastion Host(Windows Server 2019)에 접속합니다.
+<ul>
+<li>IP와 Administrator의 Password 확인 방법은 Task02를 참고 합니다.</li>
+<li><a href="https://www.soft2000.com/12664">Windows OS에서 원격 접속방법 참고</a></li>
+<li><a href="https://kimsungjin.tistory.com/227">MAC OS에서 원격 접속방법 참고</a></li>
+</ul>
+</li>
+<li>Windows 버튼을 누르고, <strong>Server Manager</strong> 에 접속합니다.
+<img src="images/04-01.png" alt="image04-01"></li>
+<li>Internet Explorer의 보안 설정을 해제하기 위해 <strong>Local Server</strong> 를 선택하고, <strong>IE Enhanced Security Configuration</strong> 의 <strong>On</strong> 을 선택합니다.
+<img src="images/04-02.png" alt="image04-02"></li>
+<li>Administrator와 Users를 모두 <strong>Off</strong> 로 변경한 후 <strong>OK</strong> 버튼을 선택합니다.
+<img src="images/04-03.png" alt="image04-03"></li>
+<li>Server Manager를 종료합니다. 그리고 Internet Explorer 를 실행합니다.
+<img src="images/04-04.png" alt="image04-04"></li>
+<li>주소창에 &ldquo;https://192.168.1.99:7630&rdquo; 을 입력합니다. (IP: Overlay IP, Port: 7630)</li>
+<li><strong>More information</strong> 을 선택하고 <strong>Go on to the webpage</strong> 를  선택합니다.
+<img src="images/04-05.png" alt="image04-05"></li>
+<li>HAWK Login 페이지가 로딩 됩니다. ID: <strong>hacluster</strong> , Password: <strong>Init12345</strong> 로 입력합니다. (Password는 Lab01의 Quick Starts 옵션에서 SAP HANA password로 입력하였습니다.) <strong>Login</strong> 버튼을 누릅니다.
+<img src="images/04-06.png" alt="image04-06"></li>
+<li><strong>Dashboad</strong> 메뉴를 선택합니다. 현재 각 노드의 상태와 노드 별 리소스 상태를 확인하실 수 있습니다.
+<img src="images/04-07.png" alt="image04-07"></li>
+</ol>
+
+<div class="notices warning" ><p><em><strong>원격접속을 유지한 상태로 Task04 및 Lab03을 진행합니다. HA Test시에 Dashboard 상태를 확인할 예정입니다.</strong></em></p>
+</div>
+
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/lab2/lab2-2/" title="Task 02. Connect to Overlay IP"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/lab3/" title="Lab 03. Testing DB Cluster" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1599598667"></script>
+    <script src="/js/jquery.sticky.js?1599598667"></script>
+    <script src="/js/featherlight.min.js?1599598667"></script>
+    <script src="/js/highlight.pack.js?1599598667"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1599598667"></script>
+    <script src="/js/learn.js?1599598667"></script>
+    <script src="/js/hugo-learn.js?1599598667"></script>
+
+    <link href="/mermaid/mermaid.css?1599598667" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1599598667"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

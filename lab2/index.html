@@ -12,20 +12,20 @@
     <title>Lab 02. Cluster Monitoring and Maintenance :: SAP HANA on AWS Advanced WorkShop</title>
 
     
-    <link href="/css/nucleus.css?1599497196" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1599497196" rel="stylesheet">
-    <link href="/css/hybrid.css?1599497196" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1599497196" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1599497196" rel="stylesheet">
-    <link href="/css/auto-complete.css?1599497196" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1599497196" rel="stylesheet">
-    <link href="/css/theme.css?1599497196" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1599497196" rel="stylesheet">
+    <link href="/css/nucleus.css?1599598667" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1599598667" rel="stylesheet">
+    <link href="/css/hybrid.css?1599598667" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1599598667" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1599598667" rel="stylesheet">
+    <link href="/css/auto-complete.css?1599598667" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1599598667" rel="stylesheet">
+    <link href="/css/theme.css?1599598667" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1599598667" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1599497196" rel="stylesheet">
+      <link href="/css/theme-aws.css?1599598667" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1599497196"></script>
+    <script src="/js/jquery-3.3.1.min.js?1599598667"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1599497196"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1599497196"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1599598667"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1599598667"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1599497196"></script>
+<script type="text/javascript" src="/js/search.js?1599598667"></script>
 
     
   </div>
@@ -113,6 +113,44 @@
           
       </a>
       
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/lab1-1/" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/lab1-1/">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -137,6 +175,96 @@
           
       </a>
       
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-1/" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-1/">
+          <b> </b>Task 01. Verify Created Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-2/" title="Task 02. Connect to Overlay IP" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-2/">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-3/">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -274,7 +402,6 @@
     <li>
       <ul>
         <li></li>
-        <li><a href="#connect-to-overlay-ip">Connect to Overlay IP</a></li>
       </ul>
     </li>
   </ul>
@@ -310,19 +437,7 @@
 
 <hr>
 <h4 id="lab-architecture">Lab Architecture</h4>
-<p><img src="images/01.png" alt="image01"></p>
-<hr>
-<h3 id="connect-to-overlay-ip">Connect to Overlay IP</h3>
-<p>Multi AZ 환경에서 High Availability Cluster를 구성하게 될 경우, Application Server 및 HANA Database 가 사용하는 VIP는 VPC CIDR 밖에 있는 Overlay IP를 사용합니다. 이것을 다른 VPC 혹은 OnPremise 환경에서 접속하기 위해서는 구성한 리전에 Transit Gateway를 구성하여, VPC 및 VPN/Direct Connect 를 연결하고, Overlay IP를 라우팅 테이블에 등록해야 합니다. CloudFormation을 통해 가상의 Custom VPC 환경을 만들고, Overlay IP를 통해 HANA Database에 연결하는 실습을 진행할 예정입니다.</p>
-<ol>
-<li>AWS Management Console에 로그인 한 뒤 <a href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://cloudformation-template-sejun.s3.ap-northeast-2.amazonaws.com/SAPonAWSEnv.yaml&amp;stackName=CustomVPC">CloudFormation for Customer VPC</a> 에 접속합니다.</li>
-<li><strong>Network Configuration</strong> 설정은 기존과 겹치지 않으면 기본 설정을 사용합니다.
-<img src="images/02.png" alt="image02"></li>
-<li>화면 아래 <strong>Capabilities</strong> 의 두개의 체크박스를 선택하고 <strong>Create stack</strong> 버튼을 누릅니다.
-<img src="images/03.png" alt="image03"></li>
-<li><strong>CustomVPC</strong> 스택이 생성되었습니다. Status가 <strong>CREATE_COMPLTE</strong> 될 때까지 기다립니다.
-<img src="images/04.png" alt="image04"></li>
-</ol>
+<p><img src="images/01-01.png" alt="image01-01"></p>
 <hr>
 <!-- raw HTML omitted -->
 
@@ -389,8 +504,26 @@
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -406,6 +539,24 @@
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
                     
 
                     
@@ -417,8 +568,40 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
                     
                 
                 
@@ -456,10 +639,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/lab1/" title="Lab 01. Setup SAP HANA Cluster"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/lab1/lab1-1/" title="Task 01. SAP HANA Quick Starts"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/lab3/" title="Lab 03. Testing DB Cluster" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/lab2/lab2-1/" title="Task 01. Verify Created Resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -469,19 +652,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1599497196"></script>
-    <script src="/js/perfect-scrollbar.min.js?1599497196"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1599497196"></script>
-    <script src="/js/jquery.sticky.js?1599497196"></script>
-    <script src="/js/featherlight.min.js?1599497196"></script>
-    <script src="/js/highlight.pack.js?1599497196"></script>
+    <script src="/js/clipboard.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1599598667"></script>
+    <script src="/js/jquery.sticky.js?1599598667"></script>
+    <script src="/js/featherlight.min.js?1599598667"></script>
+    <script src="/js/highlight.pack.js?1599598667"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1599497196"></script>
-    <script src="/js/learn.js?1599497196"></script>
-    <script src="/js/hugo-learn.js?1599497196"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1599598667"></script>
+    <script src="/js/learn.js?1599598667"></script>
+    <script src="/js/hugo-learn.js?1599598667"></script>
 
-    <link href="/mermaid/mermaid.css?1599497196" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1599497196"></script>
+    <link href="/mermaid/mermaid.css?1599598667" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1599598667"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

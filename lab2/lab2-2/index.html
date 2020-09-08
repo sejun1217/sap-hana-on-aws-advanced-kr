@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Sejun Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Task 02. Connect to Overlay IP :: SAP HANA on AWS Advanced WorkShop</title>
+
+    
+    <link href="/css/nucleus.css?1599598667" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1599598667" rel="stylesheet">
+    <link href="/css/hybrid.css?1599598667" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1599598667" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1599598667" rel="stylesheet">
+    <link href="/css/auto-complete.css?1599598667" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1599598667" rel="stylesheet">
+    <link href="/css/theme.css?1599598667" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1599598667" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1599598667" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1599598667"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/lab2/lab2-2/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1599598667"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1599598667"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1599598667"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/intro/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/intro/">
+          <b>1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/" title="Lab 01. Setup SAP HANA Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/">
+          <b>2. </b>Lab 01. Setup SAP HANA Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/lab1-1/" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/lab1-1/">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/" title="Lab 02. Cluster Monitoring and Maintenance" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/lab2/">
+          <b>3. </b>Lab 02. Cluster Monitoring and Maintenance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-1/" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-1/">
+          <b> </b>Task 01. Verify Created Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-2/" title="Task 02. Connect to Overlay IP" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/lab2/lab2-2/">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-3/">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/" title="Lab 03. Testing DB Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/">
+          <b>4. </b>Lab 03. Testing DB Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/" title="Lab 04. Config Cost Optimized Scenario" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/">
+          <b>5. </b>Lab 04. Config Cost Optimized Scenario
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://master.d24ltnpdigr6ti.amplifyapp.com/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credit</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2019 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab2/'>Lab 02. Cluster Monitoring and Maintenance</a> > Task 02. Connect to Overlay IP
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#hahahugoshortcode-s1-hbhb">HAHAHUGOSHORTCODE-s1-HBHB</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Task 02. Connect to Overlay IP
+            </h1>
+          
+
+        
+
+
+
+
+	
+<div class="notices note" ><p>Multi AZ 환경에서 High Availability Cluster를 구성하게 될 경우, Application Server 및 HANA Database 가 사용하는 VIP는 VPC CIDR 밖에 있는 Overlay IP를 사용합니다. 이것을 다른 VPC 혹은 OnPremise 환경에서 접속하기 위해서는 구성한 리전에 Transit Gateway를 구성하여, VPC 및 VPN/Direct Connect 를 연결하고, Overlay IP를 라우팅 테이블에 등록해야 합니다. 이번 실습에서는 CloudFormation을 통해 가상의 Custom VPC 환경을 만들고, Bastion Host가 Overlay IP를 통해 HANA Database에 연결하는 실습을 진행할 예정입니다.</p>
+</div>
+
+<p>이번 Task는 총 5 단계로 진행 됩니다.</p>
+<ul>
+<li>Customer VPC 및 Bastion Host 생성</li>
+<li>Transit Gateway 생성 및 설정</li>
+<li>Instance route table 업데이트</li>
+<li>Instance Security Group 업데이트</li>
+<li>Bastion Host와 Overlay IP 연결 테스트</li>
+</ul>
+<hr>
+<h4 id="customer-vpc-및-bastion-host-생성">Customer VPC 및 Bastion Host 생성</h4>
+<p>CloudFormation으로 Custom VPC 및 Bastion Host를 생성합니다.</p>
+<ol>
+<li>AWS Management Console에 로그인 한 뒤 <a href="https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://cloudformation-template-sejun.s3.ap-northeast-2.amazonaws.com/SAPonAWSEnv.yaml&amp;stackName=CustomVPC">CloudFormation for Customer VPC</a> 에 접속합니다.</li>
+<li><strong>Network Configuration</strong> 설정은 기존과 겹치지 않으면 기본 설정을 사용합니다.
+<img src="images/03-01.png" alt="image03-01"></li>
+<li>화면 아래 <strong>Capabilities</strong> 의 두개의 체크박스를 선택하고 <strong>Create stack</strong> 버튼을 누릅니다.
+<img src="images/03-02.png" alt="image03-02"></li>
+<li><strong>CustomVPC</strong> 스택이 생성되었습니다. Status가 <strong>CREATE_COMPLTE</strong> 될 때까지 기다립니다.
+<img src="images/03-03.png" alt="image03-03"></li>
+<li><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다. Bastion Host(Windows Sever 2019)가 Custom VPC - Public Subnet 위에 생성된 것을 확인 하실 수 있습니다.
+<img src="images/03-04.png" alt="image03-04"></li>
+</ol>
+<hr>
+<h4 id="transit-gateway-생성-및-설정">Transit Gateway 생성 및 설정</h4>
+<p>SAP HANA VPC 및 Custom VPC를 연결하기 위해 Transit Gateway를 생성합니다.</p>
+<ol>
+<li>
+<p><a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#TransitGateways:sort=transitGatewayId">Transit Gateways Console</a>에 접속하여 Transit Gateway를 생성하고 HANA DB 인스턴스의 VPC와 Custom VPC를 연결합니다. 그리고 Overlay IP를 연결하기 위한 엔트리를 해당 Transit Gateway의 Routing Table에 등록합니다.</p>
+</li>
+<li>
+<p><strong>Create Transit Gateway</strong> 버튼을 누릅니다.
+<img src="images/03-05.png" alt="image03-05"></p>
+</li>
+<li>
+<p>Name Tag에 <strong>HANA-TGW</strong> 로 입력하고 <strong>Create Transit Gateway</strong> 버튼을 누릅니다. <strong>Close</strong> 버튼을 누릅니다.
+<img src="images/03-06.png" alt="image03-06"></p>
+</li>
+<li>
+<p>방금 생성한 <strong>HANA-TGW</strong> State가 <strong>available</strong> 이 될때까지 기다립니다.
+<img src="images/03-07.png" alt="image03-07"></p>
+</li>
+<li>
+<p><a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#TransitGatewayAttachments:sort=transitGatewayAttachmentId">Transit Gateways Attachment Console</a>에 하여 HANA VPC와, Custom VPC를 연결 합니다. <strong>Create Transit Gateway Attachment</strong> 버튼을 선택 합니다.
+<img src="images/03-08.png" alt="image03-08"></p>
+</li>
+<li>
+<p>이전에 생성한 <strong>HANA-TGW</strong> 를 선택하고, Attachment name tag는 <strong>HANA VPC</strong> 를 입력합니다. VPC ID는 <strong>SAP-HANA~</strong> 로 시작하는 것을 선택합니다.
+<img src="images/03-09.png" alt="image03-09"></p>
+</li>
+<li>
+<p>우측 하단에 있는 <strong>Create attachment</strong> 버튼을 누릅니다. <strong>Close</strong> 버튼을 누릅니다.
+<img src="images/03-10.png" alt="image03-10"></p>
+</li>
+<li>
+<p>다시 <strong>Create Transit Gateway</strong> 버튼을 누릅니다.
+<img src="images/03-11.png" alt="image03-11"></p>
+</li>
+<li>
+<p>마찬가지로 <strong>HANA-TGW</strong> 를 선택하고, Attachment name tag는 <strong>Custom VPC</strong> 를 입력합니다. VPC ID는 <strong>Custom</strong> 을 선택합니다.
+<img src="images/03-12.png" alt="image03-12"></p>
+</li>
+<li>
+<p>우측 하단에 있는 <strong>Create attachment</strong> 버튼을 누릅니다. <strong>Close</strong> 버튼을 누릅니다.
+<img src="images/03-13.png" alt="image03-13"></p>
+</li>
+<li>
+<p>두 연결이 모두 <strong>State</strong> 가 <strong>available</strong> 이 될 때까지 기다립니다.(일정 시간 후 Refresh 버튼을 눌러서 State를 확인합니다.)
+<img src="images/03-14.png" alt="image03-14"></p>
+</li>
+<li>
+<p><a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#TransitGatewayRouteTables:sort=transitGatewayRouteTableId">Transit Gateways Route Tables Console</a>에 접속하여 Overlay IP에 대한 라우팅을 등록 합니다.</p>
+</li>
+<li>
+<p>생성된 라우팅 테이블을 선택하고 아래에 <strong>Routes</strong> 탭을 선택합니다. <strong>Create static route</strong> 버튼을 선택 합니다.
+<img src="images/03-15.png" alt="image03-15"></p>
+</li>
+<li>
+<p>CIDR은 <strong>192.168.1.99/32</strong> 를 입력 합니다.</p>
+</li>
+<li>
+<p>Choose attachment는 <strong>HANA VPC</strong> 를 선택하고, <strong>Create static route</strong> 버튼을 누릅니다.
+<img src="images/03-16.png" alt="image03-16"></p>
+</li>
+<li>
+<p><strong>Close</strong> 버튼을 누릅니다.</p>
+</li>
+<li>
+<p>Overlay IP에 대한 static route가 등록 된것을 확인하실 수 있습니다.
+<img src="images/03-17.png" alt="image03-17"></p>
+</li>
+</ol>
+<hr>
+<h4 id="instance-route-table-업데이트">Instance route table 업데이트</h4>
+<p>HANA DB Instance 와 Bastion Host가 Transit Gateway를 통해 서로 통신할 수 있도록, 각각의 route table을 업데이트 해줍니다.</p>
+<ol>
+<li><a href="https://console.aws.amazon.com/vpc/home?region=us-east-1#RouteTables:sort=routeTableId">Route Tables Console</a>에 접속합니다.</li>
+<li>HANA DB Instance 의 route table 부터 업데이트 합니다. <strong>Private subnet route table</strong> 를 선택하고 아래 <strong>Routes</strong> 탭을 선택합니다. 다음은 <strong>Edit routes</strong> 버튼을 선택합니다.
+<img src="images/03-18.png" alt="image03-18"></li>
+<li><strong>Add routes</strong> 버튼을 선택한 다음, Destination을 <strong>10.1.0.0/16</strong> 로 입력하고, Target을 <strong>Transit Gateway</strong> 로 선택합니다.</li>
+<li><strong>HANA-TGW</strong> 를 선택하고 <strong>Save routes</strong> 버튼을 선택합니다.
+<img src="images/03-19.png" alt="image03-19">
+<img src="images/03-20.png" alt="image03-20"></li>
+<li><strong>Close</strong> 버튼을 선택합니다.</li>
+<li>다음은 Bastion Host의 route table을 업데이트 합니다. <strong>Custom Public Routes</strong> 를 선택하고 아래 <strong>Routes</strong> 탭을 선택합니다. 다음은 <strong>Edit routes</strong> 버튼을 선택합니다.
+<img src="images/03-21.png" alt="image03-21"></li>
+<li><strong>Add routes</strong> 버튼을 선택한 다음, Destination을 <strong>10.0.0.0/16</strong> 로 입력하고, Target을 <strong>Transit Gateway</strong> 로 선택합니다. 다음은 <strong>HANA-TGW</strong> 를 선택합니다.</li>
+<li>다시 <strong>Add routes</strong> 버튼을 선택한 다음, Destination을 <strong>192.168.1.99/32</strong> 로 입력하고, Target을 <strong>Transit Gateway</strong> 로 선택합니다. 다음은 <strong>HANA-TGW</strong> 를 선택합니다.</li>
+<li>두 routes 가 등록된 것을 확인하고 <strong>Save routes</strong> 버튼을 선택합니다.
+<img src="images/03-22.png" alt="image03-22"></li>
+<li><strong>Close</strong> 버튼을 누릅니다.</li>
+</ol>
+<hr>
+<h4 id="instance-security-group-업데이트">Instance Security Group 업데이트</h4>
+<p>Primary 및 Secondary HANA DB 인스턴스의 Security Group에 Bastion Host에 대한 인바운트 트래픽을 허용해 줍니다.</p>
+<ol>
+<li>우선 Bastion Host의 IP를 확인 합니다. <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다. <strong>Custom Bastion Host</strong> 의 Private IP를 확인 합니다. (e.g 10.1.3.154)
+<img src="images/03-23.png" alt="image03-23"></li>
+<li>Primary 인스턴스 부터 업데이트 합니다. <strong>HANA-HDB-Primary</strong> 인스턴스를 선택하고, 아래 Security Groups 링크를 클릭 합니다.
+<img src="images/03-24.png" alt="image03-24"></li>
+<li>하단의 <strong>Inbound rules</strong> 탭을 선택하고, <strong>Edit inbound rules</strong> 버튼을 선택합니다.
+<img src="images/03-25.png" alt="image03-25"></li>
+<li>제일 아래 <strong>Add rule</strong> 버튼을 선택하고, Type은 <strong>All traffic</strong> 를 선택하고 Source는 위에서 찾은 Bastion Host의 CIDR을 입력해 줍니다. (e.g 10.1.3.154/32)
+<ul>
+<li>실습 환경이기 때문에, Bastion Host를 All traffic 으로 허용 하였습니다. 실제 환경에서는 필요한 포트만 허용 해주는 것을 권장 드립니다.
+<img src="images/03-26.png" alt="image03-26"></li>
+</ul>
+</li>
+<li>제일 아래 <strong>Save rules</strong> 버튼을 선택합니다.</li>
+<li>Primary Instance와 동일하게 Secondary Instance에 Security Group에도 업데이트 합니다. 다시 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다.</li>
+<li><strong>HANA-HDB-Secondary</strong> 인스턴스를 선택하고, 아래 Security Groups 링크를 클릭 합니다.
+<img src="images/03-27.png" alt="image03-27"></li>
+<li>하단의 <strong>Inbound rules</strong> 탭을 선택하고, <strong>Edit inbound rules</strong> 버튼을 선택합니다.</li>
+<li>제일 아래 <strong>Add rule</strong> 버튼을 선택하고, Type은 <strong>All traffic</strong> 를 선택하고 Source는 위에서 찾은 Bastion Host의 CIDR을 입력해 줍니다. (e.g 10.1.3.154/32)
+<ul>
+<li>실습 환경이기 때문에, Bastion Host를 All traffic 으로 허용 하였습니다. 실제 환경에서는 필요한 포트만 허용 해주는 것을 권장 드립니다.
+<img src="images/03-26.png" alt="image03-26"></li>
+</ul>
+</li>
+<li>제일 아래 <strong>Save rules</strong> 버튼을 선택합니다.</li>
+</ol>
+<hr>
+<h4 id="bastion-host와-overlay-ip-연결-테스트">Bastion Host와 Overlay IP 연결 테스트</h4>
+<p>Bastion Host에 접속해서 Overlay IP와 연결 가능한지 확인하기 위해 Ping 테스트를 수행 합니다.</p>
+<ol>
+<li><a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다.<strong>Custom Bastion Host</strong> 의 Public IP를 확인 합니다. (e.g 35.173.137.37)
+<img src="images/03-28.png" alt="image03-28"></li>
+<li><strong>Custom Bastion Host</strong> 를 선택하고 <strong>Connect</strong> 버튼을 누릅니다.
+<img src="images/03-29.png" alt="image03-29"></li>
+<li><strong>Get Password</strong> 를 선택 합니다.
+<img src="images/03-30.png" alt="image03-30"></li>
+<li><strong>파일 선택</strong> 버튼을 선택하고, Lab01에서 저장한 <strong>SAP-ImmersionDay-Lab.pem</strong> 파일을 선택 합니다.
+<ul>
+<li>OS에 따라 아래 화면이 다르게 보일 수 있습니다. 아래 캡처 화면은 MacBook 화면 입니다.
+<img src="images/03-31.png" alt="image03-31">
+<img src="images/03-32.png" alt="image03-32"></li>
+</ul>
+</li>
+<li><strong>Decrypt Password</strong> 버튼을 선택해서, Administrator Password를 확인 합니다.(e.g qRPIUIXXSI5ceUhLuntol%WhZ&amp;WFzCT$)
+<img src="images/03-33.png" alt="image03-33">
+<img src="images/03-34.png" alt="image03-34"></li>
+<li><strong>Close</strong> 버튼을 누릅니다.</li>
+<li>원격접속 프로그램을 사용하여 Bastion Host에 접속합니다.
+<ul>
+<li><a href="https://www.soft2000.com/12664">Windows OS에서 원격 접속방법 참고</a></li>
+<li><a href="https://kimsungjin.tistory.com/227">MAC OS에서 원격 접속방법 참고</a></li>
+</ul>
+</li>
+<li>성공적으로 접속이 되면, Search 창에서 <strong>Windows PowerShell</strong>을 검색하고, 실행합니다.
+<img src="images/03-35.png" alt="image03-35"></li>
+<li>PowerShell이 실행되면 Overlay IP와 통신이 되는지 확인하기 위해 <strong>ping 192.168.1.99</strong> 를 실행 합니다.
+<img src="images/03-36.png" alt="image03-36"></li>
+</ol>
+<h2 id="hahahugoshortcode-s1-hbhb">
+<div class="notices warning" ><p><em><strong>PowerShell은 종료하고, 원격접속을 유지한 상태로 Task03을 진행합니다.</strong></em></p>
+</div>
+</h2>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/lab2/lab2-1/" title="Task 01. Verify Created Resources"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1599598667"></script>
+    <script src="/js/jquery.sticky.js?1599598667"></script>
+    <script src="/js/featherlight.min.js?1599598667"></script>
+    <script src="/js/highlight.pack.js?1599598667"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1599598667"></script>
+    <script src="/js/learn.js?1599598667"></script>
+    <script src="/js/hugo-learn.js?1599598667"></script>
+
+    <link href="/mermaid/mermaid.css?1599598667" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1599598667"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

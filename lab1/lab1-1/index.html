@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Sejun Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Task 01. SAP HANA Quick Starts :: SAP HANA on AWS Advanced WorkShop</title>
+
+    
+    <link href="/css/nucleus.css?1599598667" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1599598667" rel="stylesheet">
+    <link href="/css/hybrid.css?1599598667" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1599598667" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1599598667" rel="stylesheet">
+    <link href="/css/auto-complete.css?1599598667" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1599598667" rel="stylesheet">
+    <link href="/css/theme.css?1599598667" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1599598667" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1599598667" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1599598667"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/lab1/lab1-1/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1599598667"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1599598667"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1599598667"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/intro/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/intro/">
+          <b>1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/" title="Lab 01. Setup SAP HANA Cluster" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/lab1/">
+          <b>2. </b>Lab 01. Setup SAP HANA Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/lab1-1/" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/lab1/lab1-1/">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/" title="Lab 02. Cluster Monitoring and Maintenance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/">
+          <b>3. </b>Lab 02. Cluster Monitoring and Maintenance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-1/" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-1/">
+          <b> </b>Task 01. Verify Created Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-2/" title="Task 02. Connect to Overlay IP" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-2/">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-3/">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/" title="Lab 03. Testing DB Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/">
+          <b>4. </b>Lab 03. Testing DB Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/" title="Lab 04. Config Cost Optimized Scenario" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/">
+          <b>5. </b>Lab 04. Config Cost Optimized Scenario
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://master.d24ltnpdigr6ti.amplifyapp.com/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credit</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2019 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab1/'>Lab 01. Setup SAP HANA Cluster</a> > Task 01. SAP HANA Quick Starts
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Task 01. SAP HANA Quick Starts
+            </h1>
+          
+
+        
+
+
+
+
+	
+<div class="notices note" ><p>SAP HANA Quick Starts를 이용하여 SAP HANA High Availability Architecture를 손쉽게 구성합니다.</p>
+</div>
+
+<hr>
+<h4 id="사전작업--key-pair-생성">사전작업 : Key Pair 생성</h4>
+<p>HANA Database 및 Application Servers 에 접속하기 위한 Key Pair 를 생성 합니다.</p>
+<ol>
+<li>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:">Key Pairs Console</a> 서비스에 접속합니다.</li>
+<li><strong>Create key pair</strong> 버튼을 누릅니다.
+<img src="images/02.png" alt="image02"></li>
+<li>Name은 <strong>SAP-ImmersionDay-Lab</strong> 라고 입력 후 <strong>Create key pair</strong> 버튼을 누릅니다.
+<img src="images/03.png" alt="image03"></li>
+<li>이번 WorkShop은 HANA DB 인스턴스는 Session Manager를 통해 접속하고, Bastion Host(Windows Server 2019)는 key pair를 사용하여 Administrator Password를 복호화 하고 원격 접속 프로그램을 통해 접속할 예정입니다. 다운로드 된 키는 안전한 위치에 보관합니다.(**주의 Lab02에서 사용할 예정입니다.)</li>
+</ol>
+<hr>
+<h4 id="sap-hana-quick-starts">SAP HANA Quick Starts</h4>
+<p>SAP HANA Quick Starts는 설치를 위한 다양한 옵션이 있습니다. 본 실습은 새로운 VPC에 HANA Database를 Multi-AZ 기반으로 구성합니다. SAP HANA Quick Starts에 대한 자세한 사항은 옆 링크를 참고하시기 바랍니다.(<a href="https://docs.aws.amazon.com/quickstart/latest/sap-hana/welcome.html">SAP HANA Quick Start Guide</a>)</p>
+<ol>
+<li>
+<p>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?stackName=SAP-HANA-HA&amp;templateURL=https://aws-quickstart.s3.amazonaws.com/quickstart-sap-hana-ha/templates/SAP_HANA_HA_Master_New_VPC.yaml">SAP HANA Quick Starts</a> 서비스에 접속합니다.</p>
+</li>
+<li>
+<p>리전이 <strong>US East(N.Virginia)</strong> 인지 확인 합니다. 그리고 <strong>Next</strong> 버튼을 선택합니다.
+<img src="images/04.png" alt="image04"></p>
+</li>
+<li>
+<p>Stack name은 이전에 사용했던 name과 동일하지 않는한 변경하지 않습니다.</p>
+</li>
+<li>
+<p><strong>Step2.Specify stack details</strong> 은 S4HANA 설치를 위한 VPC, SAP HANA, SAP S/4HANA ABAB Cluster 설정 옵션을 입력하는 단계입니다.</p>
+</li>
+<li>
+<p><strong>Step2.1 Network infrastructure configuration</strong> 옵션은 아래와 같이 입력 합니다.</p>
+<ul>
+<li>VPC CIDR(default) : 10.0.0.0/16</li>
+<li><strong>Availability Zones for subnet creation(선택)</strong> : us-east-1a, us-east-1b</li>
+<li>CIDR block for Private subnet 1(default) : 10.0.1.0/24</li>
+<li>CIDR block for Private subnet 2(default) : 10.0.2.0/24</li>
+<li>Enter CIDR block for Public subnet 1(default) : 10.0.3.0/24</li>
+<li>Enter CIDR block for Public subnet 2(default) : 10.0.4.0/24
+<img src="images/05.png" alt="image05"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.2 Server and storage configuration</strong> 옵션은 아래와 같이 입력 합니다.</p>
+<ul>
+<li><strong>Choose operating system for SAP HANA</strong> : SuSELinux12SP4ForSAP-BYOS</li>
+<li><strong>Enter SUSE BYOS Registration Code</strong> : 5636D3C2B4D19CD4</li>
+<li>Choose instance type for SAP HANA : r5.4xlarge</li>
+<li>Enter Dedicated Host ID :</li>
+<li><strong>Choose key pair</strong> : SAP-ImmersionDay-Lab</li>
+<li>Choose storage volume type for SAP HANA Log : gp2</li>
+<li>Choose storage volume type for SAP HANA Data : gp2</li>
+<li>Would you like to turn on encryption? : no
+<img src="images/06.png" alt="image06"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.3 SAP HANA database configuration</strong> 옵션은 아래와 같이 입력 합니다.</p>
+<ul>
+<li>Enter domain name : local</li>
+<li>Enter SAP HANA Primary host name : prihana</li>
+<li>Enter SAP HANA Secondary host name : sechana</li>
+<li>Enter SAP HANA system ID : HDB</li>
+<li>Enter SAP HANA instance number : 00</li>
+<li><strong>Enter SAP HANA password</strong> : Init12345!</li>
+<li>Enter SAP HANA Server timezone : UC</li>
+<li><strong>Enter Amazon S3 URL for SAP HANA software</strong> : (e.g s3://sap-immsersionday-hol1/hanadb/)</li>
+<li>Install SAP HANA software? : Yes
+<img src="images/07.png" alt="image07"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.4 SAP HANA High Availability configuration</strong> 옵션은 기본 설정 그대로 사용합니다.</p>
+<ul>
+<li>HANA Primary Site Name : HAP</li>
+<li>HANA Secondary Site Name : HAS</li>
+<li>Overlay IP Address : 192.168.1.99</li>
+<li>Pacemaker Tag Name : PaceTag
+<img src="images/08.png" alt="image08"></li>
+</ul>
+</li>
+<li>
+<p><strong>Step2.5 Optional configuration</strong> RDP 및 Bastion 설정은 Lab02에서 다룰 예정이므로 변경없이 <strong>No</strong> 로 선택합니다. 나머지 옵션은 Skip 합니다.
+<img src="images/09.png" alt="image09"></p>
+</li>
+<li>
+<p><strong>Step2.6 Advanced configuration (Do not modify unless directed by AWS Support)</strong> 은 Default 설정을 사용합니다 <strong>Next</strong> 버튼을 선택합니다.
+<img src="images/10.png" alt="image10"></p>
+</li>
+<li>
+<p><strong>Step3.Configure stack options</strong> 은 Stack 실행 옵션을 설정하는 단계 입니다.</p>
+</li>
+<li>
+<p>Error 발생 시 원활한 Trouble Shooting을 위해 Rollback 옵션을 <strong>Disabled</strong> 로 변경합니다. 그리고 <strong>Next</strong> 버튼을 선택합니다.
+<img src="images/11.png" alt="image11"></p>
+</li>
+<li>
+<p><strong>Step4.Review</strong> 은 이전 설정을 확인하는 단계 입니다. 제일 하단 <strong>Capabilities</strong> 의 두 체크 Box를 선택 후 <strong>Create stack</strong> 버튼을 선택합니다.
+<img src="images/12.png" alt="image12"></p>
+</li>
+<li>
+<p><strong>SAP-HANA-HA</strong> 스택이 생성 되었습니다. Status가 <strong>CREATE_COMPLETE</strong> 가 될 때 까지 기다립니다.
+<img src="images/13.png" alt="image13">
+<img src="images/14.png" alt="image14"></p>
+</li>
+</ol>
+
+<div class="notices warning" ><p><em><strong>Error 가 발생했을 경우 진행하고 있는 Solutions Architect에게 문의 합니다.</strong></em></p>
+</div>
+
+<hr>
+
+<div class="notices note" ><p><em><strong>Lab01 실습이 종료 되었습니다. 다음은 Lab02를 진행합니다.</strong></em></p>
+</div>
+
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/lab1/" title="Lab 01. Setup SAP HANA Cluster"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/lab2/" title="Lab 02. Cluster Monitoring and Maintenance" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.min.js?1599598667"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1599598667"></script>
+    <script src="/js/jquery.sticky.js?1599598667"></script>
+    <script src="/js/featherlight.min.js?1599598667"></script>
+    <script src="/js/highlight.pack.js?1599598667"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1599598667"></script>
+    <script src="/js/learn.js?1599598667"></script>
+    <script src="/js/hugo-learn.js?1599598667"></script>
+
+    <link href="/mermaid/mermaid.css?1599598667" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1599598667"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
