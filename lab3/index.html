@@ -12,20 +12,20 @@
     <title>Lab 03. Testing DB Cluster :: SAP HANA on AWS Advanced WorkShop</title>
 
     
-    <link href="/css/nucleus.css?1599598667" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1599598667" rel="stylesheet">
-    <link href="/css/hybrid.css?1599598667" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1599598667" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1599598667" rel="stylesheet">
-    <link href="/css/auto-complete.css?1599598667" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1599598667" rel="stylesheet">
-    <link href="/css/theme.css?1599598667" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1599598667" rel="stylesheet">
+    <link href="/css/nucleus.css?1599649564" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1599649564" rel="stylesheet">
+    <link href="/css/hybrid.css?1599649564" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1599649564" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1599649564" rel="stylesheet">
+    <link href="/css/auto-complete.css?1599649564" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1599649564" rel="stylesheet">
+    <link href="/css/theme.css?1599649564" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1599649564" rel="stylesheet">
     
-      <link href="/css/theme-aws.css?1599598667" rel="stylesheet">
+      <link href="/css/theme-aws.css?1599649564" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1599598667"></script>
+    <script src="/js/jquery-3.3.1.min.js?1599649564"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1599598667"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1599598667"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1599649564"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1599649564"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1599598667"></script>
+<script type="text/javascript" src="/js/search.js?1599649564"></script>
 
     
   </div>
@@ -163,13 +163,13 @@
  
   
     
-    <li data-nav-id="/lab2/" title="Lab 02. Cluster Monitoring and Maintenance" class="dd-item 
+    <li data-nav-id="/lab2/" title="Lab 02. Monitoring Cluster" class="dd-item 
         
         
         
         ">
       <a href="/lab2/">
-          <b>3. </b>Lab 02. Cluster Monitoring and Maintenance
+          <b>3. </b>Lab 02. Monitoring Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -289,6 +289,44 @@
           
       </a>
       
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-1/" title="Case 01. Stop Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-1/">
+          <b> </b>Case 01. Stop Database
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -431,8 +469,32 @@
 
 
 	<h4 id="lab-설명">Lab 설명</h4>
+
+<div class="notices note" ><p><em><strong>Lab01에서 구성한 SAP HANA Cluster가 테스트 사례에서 정상 동작 하는지 확인하는 방법을 배워 볼 예정입니다.</strong></em></p>
+</div>
+
 <hr>
 <h4 id="lab-architecture">Lab Architecture</h4>
+<p>이번 실습에서는 아래 세가지 사례에 대한 테스트를 진행할 예정입니다. 각각의 사례에서 DB가 정상적으로 테이크 오버 되느는지 확인하는 방법을 배울 예정입니다.</p>
+<ul>
+<li>Test Case 01: Stop Database(Primary &lt;&ndash;&gt; Secondary)</li>
+<li>Test Case 02: Crash Database(Primary &lt;&ndash;&gt; Secondary)</li>
+<li>Test Case 03: System crash(Primary &lt;&ndash;&gt; Secondary)</li>
+</ul>
+<ol>
+<li>
+<p>Test Architecture
+<img src="images/01.png" alt="image01"></p>
+</li>
+<li>
+<p>Secondary(on sechana) to take over as Primary
+<img src="images/02.png" alt="image02"></p>
+</li>
+<li>
+<p>Secondary(on prihana) to fail back as Primary
+<img src="images/03.png" alt="image03"></p>
+</li>
+</ol>
 <hr>
 <!-- raw HTML omitted -->
 
@@ -600,11 +662,10 @@
 
                     
                     
+                        
+                    
                     
 
-                    
-            
-        
                     
                         
             
@@ -613,6 +674,25 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -637,7 +717,7 @@
 			<a class="nav nav-prev" href="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/lab4/" title="Lab 04. Config Cost Optimized Scenario" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/lab3/lab3-1/" title="Case 01. Stop Database" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -647,19 +727,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1599598667"></script>
-    <script src="/js/perfect-scrollbar.min.js?1599598667"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1599598667"></script>
-    <script src="/js/jquery.sticky.js?1599598667"></script>
-    <script src="/js/featherlight.min.js?1599598667"></script>
-    <script src="/js/highlight.pack.js?1599598667"></script>
+    <script src="/js/clipboard.min.js?1599649564"></script>
+    <script src="/js/perfect-scrollbar.min.js?1599649564"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1599649564"></script>
+    <script src="/js/jquery.sticky.js?1599649564"></script>
+    <script src="/js/featherlight.min.js?1599649564"></script>
+    <script src="/js/highlight.pack.js?1599649564"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1599598667"></script>
-    <script src="/js/learn.js?1599598667"></script>
-    <script src="/js/hugo-learn.js?1599598667"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1599649564"></script>
+    <script src="/js/learn.js?1599649564"></script>
+    <script src="/js/hugo-learn.js?1599649564"></script>
 
-    <link href="/mermaid/mermaid.css?1599598667" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1599598667"></script>
+    <link href="/mermaid/mermaid.css?1599649564" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1599649564"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: SAP HANA on AWS Advanced WorkShop</title>
+    <title>Case 01. Stop Database :: SAP HANA on AWS Advanced WorkShop</title>
 
     
     <link href="/css/nucleus.css?1599649564" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/lab3/lab3-1/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -278,7 +278,7 @@
   
     
     <li data-nav-id="/lab3/" title="Lab 03. Testing DB Cluster" class="dd-item 
-        
+        parent
         
         
         ">
@@ -307,8 +307,8 @@
   
     
     <li data-nav-id="/lab3/lab3-1/" title="Case 01. Stop Database" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/lab3/lab3-1/">
@@ -424,7 +424,13 @@
             
           
           
-            <a href='/'>홈</a> > Tags
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab3/'>Lab 03. Testing DB Cluster</a> > Case 01. Stop Database
+          
+         
           
          
           
@@ -435,7 +441,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#validation-of-cluster">Validation of Cluster</a></li>
+        <li><a href="#stop-primary-database-on-prihana">Stop Primary Database on prihana</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -451,9 +466,7 @@
           
             <h1>
               
-                taxonomy ::
-              
-              Tags
+              Case 01. Stop Database
             </h1>
           
 
@@ -462,11 +475,97 @@
 
 
 
-
-
-<ul>
 	
+<div class="notices note" ><p>Case 01은 클러스터 작업 중에 HANA 데이터베이스가 중지되는 상황에서 클러스터가 어떻게 동작 하는지 배워볼 예정 입니다.</p>
+</div>
+
+<hr>
+<h3 id="validation-of-cluster">Validation of Cluster</h3>
+<p>테스트를 진행하기 전에 클러스터가 정상 상태인지 확인합니다. 인스턴스는 Session Manager를 통해 접속할 예정입니다.</p>
+<ol>
+<li>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다.</li>
+<li><strong>HANA-HDB-Primary</strong> 인스턴스를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="images/01-01.png" alt="image01-01"></li>
+<li><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다. Session Manager를 통해 <strong>prihana</strong> 인스턴스에 접속합니다.
+<img src="images/01-02.png" alt="image01-02"></li>
+<li>SAP HANA System Replication (HSR) 상태 체크를 합니다.</li>
+</ol>
+<ul>
+<li><strong>hdbnsutil -sr_state</strong> 명령어를 사용하여 상태 체크(hdbadm<!-- raw HTML omitted --> 유저사용)</li>
 </ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su - hdbadm
+hdbnsutil -sr_state
+</code></pre></div><p><img src="images/01-03.png" alt="image01-03"></p>
+<ul>
+<li><strong>HDBSettings.sh systemReplicationStatus.py</strong> 명령어를 사용하여 상태 체크(hdbadm<!-- raw HTML omitted --> 유저사용)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">HDBSettings.sh systemReplicationStatus.py
+</code></pre></div><p><img src="images/01-04.png" alt="image01-04"></p>
+<ul>
+<li><strong>SAPHanaSR-showAttr</strong> 명령어를 사용하여 상태 체크(root 유저사용)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">exit
+sudo su -
+SAPHanaSR-showAttr
+</code></pre></div><p><img src="images/01-05.png" alt="image01-05">
+5. Cluster 설정을 확인 합니다. take over 및 recovery procedure 가 자동으로 수행되는지 체크합니다.</p>
+<ul>
+<li><strong>crm</strong> tool은 cluster 설정 및 관리 하는 툴입니다.</li>
+<li><strong>crm configure show</strong> 명령어를 통해 Cluster의 현재 설정을 확인 할 수 있습니다.</li>
+<li><strong>PREFER_SITE_TAKEOVER=&quot;true&rdquo;</strong> 및 <strong>AUTOMATED_REGISTER=&quot;true&rdquo;</strong> 인지 확인 합니다.</li>
+<li><strong>crm configure show</strong> 명령어를 사용하여 상태 체크(root 유저사용)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm configure show
+</code></pre></div><p><img src="images/01-06.png" alt="image01-06"></p>
+<hr>
+<h3 id="stop-primary-database-on-prihana">Stop Primary Database on prihana</h3>
+<p>HDB Stop 명령어를 통해 Secondary node “sechana” 노드가 Primary 로 전환되는 과정 확인
+<img src="../images/02.png" alt="image02"></p>
+<ol>
+<li>HANA DB를 중지 합니다.(hdbadm<!-- raw HTML omitted --> 유저사용)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">su - hdbadm
+HDB stop
+</code></pre></div><p><img src="images/01-07.png" alt="image01-07">
+2. Secondary DB에 들어가서 Cluster 및 HSR 상태를 확인합니다.
+3. <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다.
+4. <strong>HANA-HDB-Secondary</strong> 인스턴스를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="images/01-08.png" alt="image01-08">
+5. <strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다. Session Manager를 통해 <strong>sechana</strong> 인스턴스에 접속합니다.
+<img src="images/01-02.png" alt="image01-02">
+6. Cluster의 상태를 체크 합니다.</p>
+<ul>
+<li>sechana 가 <strong>Master</strong> 상태인지 확인 합니다.</li>
+<li><strong>crm_mon</strong> 은 Cluster의 현재 상태를 제공하는 명령어 입니다.(root 유저사용)</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm_mon -rfn1
+</code></pre></div><p><img src="images/01-09.png" alt="image01-09">
+7. SAP HANA System Replication (HSR) 상태 체크를 합니다.</p>
+<ul>
+<li><strong>SAPHanaSR-showAttr</strong> 사용하여 상태를 체크 합니다.(root 유저사용)
+<ul>
+<li><strong>prihana</strong> node가 <strong>SOK</strong> 확인 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">SAPHanaSR-showAttr
+</code></pre></div><p><img src="images/01-10.png" alt="image01-10"></p>
+</li>
+</ul>
+<ol start="8">
+<li>Take over 후 resource 상태를 cleaned up 해줍니다.(root 유저사용)</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm resource cleanup rsc_SAPHanaTopology_HDB_HDB00
+</code></pre></div><p><img src="images/01-11.png" alt="image01-11">
+9. Bastion Host에 접속해서 HAWK 웹의 Dashboard를 확인합니다(Lab02 참고)</p>
+<ul>
+<li>Overlay IP 가 sechana로 넘어 간것을 확인하실 수 있습니다.
+<img src="images/01-11.png" alt="image01-12"></li>
+</ul>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
 
 
 <footer class=" footline" >
@@ -623,6 +722,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -637,6 +737,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -656,6 +757,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -677,8 +781,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/lab3/" title="Lab 03. Testing DB Cluster"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/intro/" title="Introduction" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/lab4/" title="Lab 04. Config Cost Optimized Scenario" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

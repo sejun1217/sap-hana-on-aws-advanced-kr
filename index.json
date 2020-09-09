@@ -29,10 +29,10 @@
 },
 {
 	"uri": "https://master.d24ltnpdigr6ti.amplifyapp.com/lab2/",
-	"title": "Lab 02. Cluster Monitoring and Maintenance",
+	"title": "Lab 02. Monitoring Cluster",
 	"tags": [],
 	"description": "",
-	"content": "Lab 설명 Lab01에서 구성한 SAP HANA Cluster를 모니터링 하고 운영하는 방법을 배워볼 예정입니다.\n\r Lab Architecture  "
+	"content": "Lab 설명 Lab01에서 구성한 SAP HANA Cluster를 모니터링 하는 방법을 배워볼 예정입니다.\n\r Lab Architecture  "
 },
 {
 	"uri": "https://master.d24ltnpdigr6ti.amplifyapp.com/lab2/lab2-1/",
@@ -53,14 +53,21 @@
 	"title": "Task 03. HAWK(High Availability Web Konsole)",
 	"tags": [],
 	"description": "",
-	"content": "\rHAWK(High Availability Web Konsole)에 접속하여 HANA DB의 Cluster 상태를 Web 화면으로 확인하실 수 있습니다.\n\r 원격접속 프로그램을 사용하여 Bastion Host(Windows Server 2019)에 접속합니다.  IP와 Administrator의 Password 확인 방법은 Task02를 참고 합니다. Windows OS에서 원격 접속방법 참고 MAC OS에서 원격 접속방법 참고   Windows 버튼을 누르고, Server Manager 에 접속합니다.  Internet Explorer의 보안 설정을 해제하기 위해 Local Server 를 선택하고, IE Enhanced Security Configuration 의 On 을 선택합니다.  Administrator와 Users를 모두 Off 로 변경한 후 OK 버튼을 선택합니다.  Server Manager를 종료합니다. 그리고 Internet Explorer 를 실행합니다.  주소창에 \u0026ldquo;https://192.168.1.99:7630\u0026rdquo; 을 입력합니다. (IP: Overlay IP, Port: 7630) More information 을 선택하고 Go on to the webpage 를 선택합니다.  HAWK Login 페이지가 로딩 됩니다. ID: hacluster , Password: Init12345 로 입력합니다. (Password는 Lab01의 Quick Starts 옵션에서 SAP HANA password로 입력하였습니다.) Login 버튼을 누릅니다.  Dashboad 메뉴를 선택합니다. 현재 각 노드의 상태와 노드 별 리소스 상태를 확인하실 수 있습니다.   원격접속을 유지한 상태로 Task04 및 Lab03을 진행합니다. HA Test시에 Dashboard 상태를 확인할 예정입니다.\n\r "
+	"content": "\rHAWK(High Availability Web Konsole)에 접속하여 HANA DB의 Cluster 상태를 Web 화면으로 확인하실 수 있습니다.\n\r 원격접속 프로그램을 사용하여 Bastion Host(Windows Server 2019)에 접속합니다.  IP와 Administrator의 Password 확인 방법은 Task02를 참고 합니다. Windows OS에서 원격 접속방법 참고 MAC OS에서 원격 접속방법 참고   Windows 버튼을 누르고, Server Manager 에 접속합니다.  Internet Explorer의 보안 설정을 해제하기 위해 Local Server 를 선택하고, IE Enhanced Security Configuration 의 On 을 선택합니다.  Administrator와 Users를 모두 Off 로 변경한 후 OK 버튼을 선택합니다.  Server Manager를 종료합니다. 그리고 Internet Explorer 를 실행합니다.  주소창에 \u0026ldquo;https://192.168.1.99:7630\u0026rdquo; 을 입력합니다. (IP: Overlay IP, Port: 7630) More information 을 선택하고 Go on to the webpage 를 선택합니다.  HAWK Login 페이지가 로딩 됩니다. ID: hacluster , Password: Init12345 로 입력합니다. (Password는 Lab01의 Quick Starts 옵션에서 SAP HANA password로 입력하였습니다.) Login 버튼을 누릅니다.  Dashboad 메뉴를 선택합니다. 현재 각 노드의 상태와 노드 별 리소스 상태를 확인하실 수 있습니다.   원격접속을 유지한 상태로 Lab03을 진행합니다. HA Test시에 Dashboard 상태를 확인할 예정입니다.\n\r Lab02 실습이 종료 되었습니다. 다음은 Lab03을 진행합니다.\n\r "
+},
+{
+	"uri": "https://master.d24ltnpdigr6ti.amplifyapp.com/lab3/lab3-1/",
+	"title": "Case 01. Stop Database",
+	"tags": [],
+	"description": "",
+	"content": "\rCase 01은 클러스터 작업 중에 HANA 데이터베이스가 중지되는 상황에서 클러스터가 어떻게 동작 하는지 배워볼 예정 입니다.\n\r Validation of Cluster 테스트를 진행하기 전에 클러스터가 정상 상태인지 확인합니다. 인스턴스는 Session Manager를 통해 접속할 예정입니다.\n AWS Management Console에 로그인 한 뒤 EC2 Instance Console에 접속 합니다. HANA-HDB-Primary 인스턴스를 선택하고, Connect 버튼을 누릅니다.  Session Manager 를 선택하고, Connect 버튼을 누릅니다. Session Manager를 통해 prihana 인스턴스에 접속합니다.  SAP HANA System Replication (HSR) 상태 체크를 합니다.   hdbnsutil -sr_state 명령어를 사용하여 상태 체크(hdbadm유저사용)  sudo su - hdbadm hdbnsutil -sr_state  HDBSettings.sh systemReplicationStatus.py 명령어를 사용하여 상태 체크(hdbadm유저사용)  HDBSettings.sh systemReplicationStatus.py  SAPHanaSR-showAttr 명령어를 사용하여 상태 체크(root 유저사용)  exit sudo su - SAPHanaSR-showAttr 5. Cluster 설정을 확인 합니다. take over 및 recovery procedure 가 자동으로 수행되는지 체크합니다.\n crm tool은 cluster 설정 및 관리 하는 툴입니다. crm configure show 명령어를 통해 Cluster의 현재 설정을 확인 할 수 있습니다. PREFER_SITE_TAKEOVER=\u0026quot;true\u0026rdquo; 및 AUTOMATED_REGISTER=\u0026quot;true\u0026rdquo; 인지 확인 합니다. crm configure show 명령어를 사용하여 상태 체크(root 유저사용)  crm configure show  Stop Primary Database on prihana HDB Stop 명령어를 통해 Secondary node “sechana” 노드가 Primary 로 전환되는 과정 확인  HANA DB를 중지 합니다.(hdbadm유저사용)  su - hdbadm HDB stop 2. Secondary DB에 들어가서 Cluster 및 HSR 상태를 확인합니다. 3. EC2 Instance Console에 접속 합니다. 4. HANA-HDB-Secondary 인스턴스를 선택하고, Connect 버튼을 누릅니다. 5. Session Manager 를 선택하고, Connect 버튼을 누릅니다. Session Manager를 통해 sechana 인스턴스에 접속합니다. 6. Cluster의 상태를 체크 합니다.\n sechana 가 Master 상태인지 확인 합니다. crm_mon 은 Cluster의 현재 상태를 제공하는 명령어 입니다.(root 유저사용)  sudo su - crm_mon -rfn1 7. SAP HANA System Replication (HSR) 상태 체크를 합니다.\n SAPHanaSR-showAttr 사용하여 상태를 체크 합니다.(root 유저사용)  prihana node가 SOK 확인 합니다.  SAPHanaSR-showAttr   Take over 후 resource 상태를 cleaned up 해줍니다.(root 유저사용)  crm resource cleanup rsc_SAPHanaTopology_HDB_HDB00 9. Bastion Host에 접속해서 HAWK 웹의 Dashboard를 확인합니다(Lab02 참고)\n Overlay IP 가 sechana로 넘어 간것을 확인하실 수 있습니다.    "
 },
 {
 	"uri": "https://master.d24ltnpdigr6ti.amplifyapp.com/lab3/",
 	"title": "Lab 03. Testing DB Cluster",
 	"tags": [],
 	"description": "",
-	"content": "Lab 설명  Lab Architecture  "
+	"content": "Lab 설명 Lab01에서 구성한 SAP HANA Cluster가 테스트 사례에서 정상 동작 하는지 확인하는 방법을 배워 볼 예정입니다.\n\r Lab Architecture 이번 실습에서는 아래 세가지 사례에 대한 테스트를 진행할 예정입니다. 각각의 사례에서 DB가 정상적으로 테이크 오버 되느는지 확인하는 방법을 배울 예정입니다.\n Test Case 01: Stop Database(Primary \u0026lt;\u0026ndash;\u0026gt; Secondary) Test Case 02: Crash Database(Primary \u0026lt;\u0026ndash;\u0026gt; Secondary) Test Case 03: System crash(Primary \u0026lt;\u0026ndash;\u0026gt; Secondary)    Test Architecture   Secondary(on sechana) to take over as Primary   Secondary(on prihana) to fail back as Primary    "
 },
 {
 	"uri": "https://master.d24ltnpdigr6ti.amplifyapp.com/lab4/",
