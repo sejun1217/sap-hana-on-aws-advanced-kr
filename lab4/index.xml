@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Demo. Config Cost Optimized Scenario on SAP HANA on AWS Advanced WorkShop</title>
-    <link>https://master.d24ltnpdigr6ti.amplifyapp.com/lab4/</link>
-    <description>Recent content in Demo. Config Cost Optimized Scenario on SAP HANA on AWS Advanced WorkShop</description>
+    <title>Lab 04. Setup and Test Cost Optimized Scenario on SAP HANA on AWS Advanced WorkShop</title>
+    <link>/sap400/lab4/</link>
+    <description>Recent content in Lab 04. Setup and Test Cost Optimized Scenario on SAP HANA on AWS Advanced WorkShop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     
-	<atom:link href="https://master.d24ltnpdigr6ti.amplifyapp.com/lab4/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/sap400/lab4/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
