@@ -125,6 +125,16 @@
   
   <url>
     <loc>/sap400/credits/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/sap400/credits/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="/sap400/credits/"
+                />
   </url>
   
   <url>
