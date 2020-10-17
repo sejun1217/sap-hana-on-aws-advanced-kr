@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Task 04. Test Resource Agent on SAP HANA on AWS Advanced WorkShop</title>
-    <link>https://master.d24ltnpdigr6ti.amplifyapp.com/lab4/lab4-4/</link>
+    <link>/sap400/lab4/lab4-4/</link>
     <description>Recent content in Task 04. Test Resource Agent on SAP HANA on AWS Advanced WorkShop</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-KR</language>
     
-	<atom:link href="https://master.d24ltnpdigr6ti.amplifyapp.com/lab4/lab4-4/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/sap400/lab4/lab4-4/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
