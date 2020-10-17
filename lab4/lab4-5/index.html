@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Sejun Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Task 05 - Upgrade Cluster Software(Optional) :: SAP HANA on AWS Advanced WorkShop</title>
+
+    
+    <link href="/css/nucleus.css?1602943139" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1602943139" rel="stylesheet">
+    <link href="/css/hybrid.css?1602943139" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1602943139" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1602943139" rel="stylesheet">
+    <link href="/css/auto-complete.css?1602943139" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1602943139" rel="stylesheet">
+    <link href="/css/theme.css?1602943139" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1602943139" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1602943139" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1602943139"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/lab4/lab4-5/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1602943139"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1602943139"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1602943139"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/intro/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/intro/">
+          <b>1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/" title="Lab 01. Setup Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/">
+          <b>2. </b>Lab 01. Setup Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/lab1-1/" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/lab1-1/">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/" title="Lab 02. Monitor Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/">
+          <b>3. </b>Lab 02. Monitor Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-1/" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-1/">
+          <b> </b>Task 01. Verify Created Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-2/" title="Task 02. Connect to Overlay IP" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-2/">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-3/">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/" title="Lab 03. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/">
+          <b>4. </b>Lab 03. Test Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-1/" title="Task 01. Verify Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-1/">
+          <b> </b>Task 01. Verify Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-2/" title="Task 02. Stop Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-2/">
+          <b>  </b>Task 02. Stop Database
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-3/" title="Task 03. Crash Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-3/">
+          <b> </b>Task 03. Crash Database
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-4/" title="Task 04. Crash System" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-4/">
+          <b> </b>Task 04. Crash System
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/" title="Lab 04. Admin Cluster" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/lab4/">
+          <b>5. </b>Lab 04. Admin Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-1/" title="Task 01. Migrate Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-1/">
+          <b> </b>Task 01. Migrate Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-2/" title="Task 02. Take a node offline" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-2/">
+          <b> </b>Task 02. Take a node offline
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-3/" title="Task 03. Perform SAP HANA System Replica" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-3/">
+          <b> </b>Task 03. Perform SAP HANA System Replica
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-4/" title="Task 04. Test Resource Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-4/">
+          <b> </b>Task 04. Test Resource Agent
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-5/" title="Task 05 - Upgrade Cluster Software(Optional)" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/lab4/lab4-5/">
+          <b> </b>Task 05 - Upgrade Cluster Software(Optional)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/" title="Lab 05. Change to Cost Optimized Scenario" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/">
+          <b>6. </b>Lab 05. Change to Cost Optimized Scenario
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-1/" title="Task 01. Change HANA HSR Config" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/lab5-1/">
+          <b> </b>Task 01. Change HANA HSR Config
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-2/" title="Task 02. Install SAP HANA DATABASE (QAS)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/lab5-2/">
+          <b> </b>Task 02. Install SAP HANA DATABASE (QAS)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-3/" title="Task 03. Change Config of the Cluster for QAS system" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/lab5-3/">
+          <b> </b>Task 03. Change Config of the Cluster for QAS system
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-4/" title="Task 04. Test Cluseter" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/lab5-4/">
+          <b> </b>Task 04. Test Cluseter
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://master.d24ltnpdigr6ti.amplifyapp.com/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credit</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2019 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab4/'>Lab 04. Admin Cluster</a> > Task 05 - Upgrade Cluster Software(Optional)
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#노드에-패키지-업데이트를-설치하기-전-반드시-다음-사항들을-확인하십시오">노드에 패키지 업데이트를 설치하기 전 반드시 다음 사항들을 확인하십시오.</a></li>
+      </ul>
+    </li>
+    <li><a href="#performing-a-cluster-wide-rolling-upgrade-from-one-service-pack-to-the-next">Performing a Cluster-wide Rolling Upgrade from one service pack to the next</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Task 05 - Upgrade Cluster Software(Optional)
+            </h1>
+          
+
+        
+
+
+
+
+	
+<div class="notices warning" ><p><em><strong>이번 실습은 실습 시점의 업데이트 상황에 따라 업데이트가 적용되지 않거나 현재 구성된 HA Cluster의 상태 변경으로 예상하지 못한 테스트 시나리오에 영향이 발생할 가능성이 있습니다. 예상치 못한 영향에 대한 문제 해결이 필요할 경우, 이는 이번 워크샵의 실습 범위를 벗어나게 되며 이후 진행하게 될 Lab 06. Cost Optimized Conifguration 실습과정 진행에도 영향을 주게 됩니다. 모든 실습이 종료된 이후 마지막으로 수행해 보는 것을 권장드립니다.</strong></em></p>
+</div>
+
+
+<div class="notices note" ><p>이 실습에서는 두 개의 클러스터 노드 모두에서 SUSE Linux를 업데이트하는 방법을 보여 줍니다.</p>
+</div>
+
+<h3 id="노드에-패키지-업데이트를-설치하기-전-반드시-다음-사항들을-확인하십시오">노드에 패키지 업데이트를 설치하기 전 반드시 다음 사항들을 확인하십시오.</h3>
+<p>업데이트가 SUSE Linux Enterprise High Availability Extension or Geo Clustering for SUSE Linux Enterprise High Availability Extension에 속하는 패키지에 영향을 주는가?</p>
+<ol>
+<li>
+<p>패키지 업데이트에 재부팅이 필요한 경우에는 소프트웨어 업데이트를 시작하기 전에 보조 노드에서 클러스터 스택을 중지합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster stop
+</code></pre></div></li>
+<li>
+<p>패키지 업데이트 설치 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+zypper up
+</code></pre></div></li>
+<li>
+<p>사용 가능한 패치 표시 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+zypper lp
+</code></pre></div></li>
+<li>
+<p>사용 가능한 업데이트 표시 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+zypper lu
+</code></pre></div></li>
+<li>
+<p>각 노드에서 클러스터 스택을 시작하거나 서버를 재시작하십시오.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm cluster start
+
+or
+
+sudo su -
+reboot
+</code></pre></div></li>
+<li>
+<p>Lab 02. Task 03. HAWK(High Availability Web Konsole)을 수행하여 Web을 통해 Cluster의 상태를 확인합니다.</p>
+</li>
+<li>
+<p>Lab 03. Task 01. Validation of Cluster를 수행하여 CLI를 통해 Cluster의 상태를 확인합니다.</p>
+</li>
+</ol>
+<hr>
+<p>위의 상황이 적용되지 않는 경우 클러스터 스택을 중지 할 필요가 없습니다.</p>
+<ol>
+<li>
+<p>이 경우에는 소프트웨어 업데이트를 시작하기 전에 노드를 유지 관리 모드로 전환하십시오. 여기서 <code>&lt;NODE_NAME&gt;</code>은 클러스터 노드의 이름입니다.<br>
+crm node maintenance <code>&lt;NODE_NAME&gt;</code></p>
+</li>
+<li>
+<p>패키지 업데이트 설치 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+zypper up
+</code></pre></div></li>
+<li>
+<p>사용 가능한 패치 표시 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+zypper lp
+</code></pre></div></li>
+<li>
+<p>사용 가능한 업데이트 표시 :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+zypper lu
+</code></pre></div></li>
+<li>
+<p>작업 완료 후 유지 보수 플래그를 제거하여 노드를 정상 모드로 되돌립니다.
+여기서 <code>&lt;NODE_NAME&gt;</code>은 클러스터 노드의 이름입니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+crm node ready <span style="color:#e6db74">`</span>&lt;NODE_NAME&gt;<span style="color:#e6db74">`</span>
+</code></pre></div></li>
+<li>
+<p>Lab 02. Task 03. HAWK(High Availability Web Konsole)을 수행하여 Web을 통해 Cluster의 상태를 확인합니다.</p>
+</li>
+<li>
+<p>Lab 03. Task 01. Validation of Cluster를 수행하여 CLI를 통해 Cluster의 상태를 확인합니다.</p>
+</li>
+</ol>
+<hr>
+<h2 id="performing-a-cluster-wide-rolling-upgrade-from-one-service-pack-to-the-next">Performing a Cluster-wide Rolling Upgrade from one service pack to the next</h2>
+
+<div class="notices note" ><p>특정 서비스 팩에서 다음 서비스 팩으로 클러스터 전체의 롤링 업그레이드 수행하는 경우 전체 서비스 팩 업그레이드를 수행하려면 업데이트를 위해 하나의 노드를 오프라인으로 전환하여 업그레이드를 진행한 다음 다시 TakeBack하여 다른 노드에서 업그레이드를 진행하는 절차를 반복해야 합니다.</p>
+</div>
+
+<ol>
+<li>업그레이드하려는 노드에 루트로 로그인하고 클러스터 스택을 중지합니다.
+crm cluster stop</li>
+<li>SAP 애플리케이션 용 SUSE Linux Enterprise Server의 원하는 대상 버전으로 업그레이드를 수행합니다.</li>
+<li>업그레이드가 완료된 노드에서 클러스터 스택을 시작하여 노드가 클러스터에 다시 참여하도록합니다.
+crm cluster start</li>
+<li>다음 노드로 이동하기 전에 &ldquo;crm_mon -rfn1&quot;또는 Hawk2로 클러스터 상태를 확인합니다.</li>
+<li>다음 노드를 오프라인으로 전환하고 해당 노드에 대해 절차를 반복합니다.</li>
+</ol>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/lab4/lab4-4/" title="Task 04. Test Resource Agent"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/lab5/" title="Lab 05. Change to Cost Optimized Scenario" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1602943139"></script>
+    <script src="/js/perfect-scrollbar.min.js?1602943139"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1602943139"></script>
+    <script src="/js/jquery.sticky.js?1602943139"></script>
+    <script src="/js/featherlight.min.js?1602943139"></script>
+    <script src="/js/highlight.pack.js?1602943139"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1602943139"></script>
+    <script src="/js/learn.js?1602943139"></script>
+    <script src="/js/hugo-learn.js?1602943139"></script>
+
+    <link href="/mermaid/mermaid.css?1602943139" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1602943139"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>

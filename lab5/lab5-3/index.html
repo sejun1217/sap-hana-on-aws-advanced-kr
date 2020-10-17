@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="ko" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.74.3" />
+    <meta name="description" content="SAP HANA on AWS Advanced WorkShop">
+<meta name="author" content="Sejun Kim">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Task 03. Change Config of the Cluster for QAS system :: SAP HANA on AWS Advanced WorkShop</title>
+
+    
+    <link href="/css/nucleus.css?1602943139" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1602943139" rel="stylesheet">
+    <link href="/css/hybrid.css?1602943139" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1602943139" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1602943139" rel="stylesheet">
+    <link href="/css/auto-complete.css?1602943139" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1602943139" rel="stylesheet">
+    <link href="/css/theme.css?1602943139" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1602943139" rel="stylesheet">
+    
+      <link href="/css/theme-aws.css?1602943139" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1602943139"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/lab5/lab5-3/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+	<img src="/images/logo.png" height="70px"/>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1602943139"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1602943139"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/master.d24ltnpdigr6ti.amplifyapp.com\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1602943139"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/intro/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/intro/">
+          <b>1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/" title="Lab 01. Setup Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/">
+          <b>2. </b>Lab 01. Setup Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab1/lab1-1/" title="Task 01. SAP HANA Quick Starts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab1/lab1-1/">
+          <b> </b>Task 01. SAP HANA Quick Starts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/" title="Lab 02. Monitor Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/">
+          <b>3. </b>Lab 02. Monitor Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-1/" title="Task 01. Verify Created Resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-1/">
+          <b> </b>Task 01. Verify Created Resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-2/" title="Task 02. Connect to Overlay IP" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-2/">
+          <b> </b>Task 02. Connect to Overlay IP
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab2/lab2-3/" title="Task 03. HAWK(High Availability Web Konsole)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab2/lab2-3/">
+          <b> </b>Task 03. HAWK(High Availability Web Konsole)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/" title="Lab 03. Test Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/">
+          <b>4. </b>Lab 03. Test Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-1/" title="Task 01. Verify Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-1/">
+          <b> </b>Task 01. Verify Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-2/" title="Task 02. Stop Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-2/">
+          <b>  </b>Task 02. Stop Database
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-3/" title="Task 03. Crash Database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-3/">
+          <b> </b>Task 03. Crash Database
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab3/lab3-4/" title="Task 04. Crash System" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab3/lab3-4/">
+          <b> </b>Task 04. Crash System
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/" title="Lab 04. Admin Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/">
+          <b>5. </b>Lab 04. Admin Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-1/" title="Task 01. Migrate Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-1/">
+          <b> </b>Task 01. Migrate Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-2/" title="Task 02. Take a node offline" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-2/">
+          <b> </b>Task 02. Take a node offline
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-3/" title="Task 03. Perform SAP HANA System Replica" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-3/">
+          <b> </b>Task 03. Perform SAP HANA System Replica
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-4/" title="Task 04. Test Resource Agent" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-4/">
+          <b> </b>Task 04. Test Resource Agent
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab4/lab4-5/" title="Task 05 - Upgrade Cluster Software(Optional)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab4/lab4-5/">
+          <b> </b>Task 05 - Upgrade Cluster Software(Optional)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/" title="Lab 05. Change to Cost Optimized Scenario" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/lab5/">
+          <b>6. </b>Lab 05. Change to Cost Optimized Scenario
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-1/" title="Task 01. Change HANA HSR Config" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/lab5-1/">
+          <b> </b>Task 01. Change HANA HSR Config
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-2/" title="Task 02. Install SAP HANA DATABASE (QAS)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/lab5-2/">
+          <b> </b>Task 02. Install SAP HANA DATABASE (QAS)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-3/" title="Task 03. Change Config of the Cluster for QAS system" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/lab5/lab5-3/">
+          <b> </b>Task 03. Change Config of the Cluster for QAS system
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/lab5/lab5-4/" title="Task 04. Test Cluseter" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/lab5/lab5-4/">
+          <b> </b>Task 04. Test Cluseter
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3></h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://master.d24ltnpdigr6ti.amplifyapp.com/credits/"><i class='fas fa-fw fa-bullhorn'></i> Credit</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> </a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      © 2019 Amazon Web Services, Inc. or its Affiliates. All rights reserved.
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>홈</a> > <a href='/lab5/'>Lab 05. Change to Cost Optimized Scenario</a> > Task 03. Change Config of the Cluster for QAS system
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Task 03. Change Config of the Cluster for QAS system
+            </h1>
+          
+
+        
+
+
+
+
+	
+<div class="notices note" ><p>Task 03에서는 기존 Cluster 구성을 변경하여 기존 HANA Database와 새로 추가된 QAS HANA Database를 관리할 수 있도록 변경할 것입니다.</p>
+</div>
+
+<ul>
+<li>Cost Optimized 시나리오 변경을 위해서는 아래와 같이 Cluster의 HANA DB 리소스에 대한 <strong>PREFER_SITE_TAKEOVER</strong> 옵션 변경이 필요합니다. 자세한 사항은 아래 링크를 참고하시기 바랍니다.
+<ul>
+<li><a href="https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-PerfOpt-12_AWS/index.html">SAP HANA High Availability Cluster for the AWS Cloud - Setup Guide</a>
+<img src="images/01-01.png" alt="image01-01"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol>
+<li>
+<p>Cluster 설정을 위해 sechana, prihana 노드의 DB 모두 stop 합니다.</p>
+<ul>
+<li>
+<p>Session Manager를 통해 sechana에 접속합니다.</p>
+<ul>
+<li>
+<p>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다.</p>
+</li>
+<li>
+<p><strong>HANA-HDB-Secondary</strong> 인스턴스를 선택하고, <strong>Action</strong>을 선택하고, <strong>Connect</strong>을 선택 합니다.
+<img src="images/03-01.png" alt="image03-01"></p>
+</li>
+<li>
+<p><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="images/04.png" alt="image04"></p>
+</li>
+<li>
+<p>QAS DB를 Stop 합니다.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su - qasadm
+HDB stop
+exit
+</code></pre></div><p><img src="images/05.png" alt="image05"></p>
+<ul>
+<li>HDB DB를 Stop 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su - hdbadm
+HDB stop
+exit
+</code></pre></div><p><img src="images/06.png" alt="image06"></p>
+</li>
+<li>
+<p>sechana 접속을 유지하고, Session Manager를 통해 prihana에 접속합니다.</p>
+<ul>
+<li>AWS Management Console에 로그인 한 뒤 <a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=instanceId">EC2 Instance Console</a>에 접속 합니다.</li>
+<li><strong>HANA-HDB-Primary</strong> 인스턴스를 선택하고, <strong>Action</strong>을 선택하고, <strong>Connect</strong>을 선택 합니다.
+<img src="images/03.png" alt="image03-01"></li>
+<li><strong>Session Manager</strong> 를 선택하고, <strong>Connect</strong> 버튼을 누릅니다.
+<img src="images/04.png" alt="image04"></li>
+<li>HDB DB를 Stop 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su - hdbadm
+HDB stop
+exit
+</code></pre></div><p><img src="images/07.png" alt="image07"></p>
+</li>
+</ul>
+</li>
+<li>
+<p>prihana에서 root 유저로, Cluster 의 HANA DB 리소스에 대한 <strong>PREFER_SITE_TAKEOVER</strong> 옵션을 <strong>true</strong> 에서 <strong>false</strong>로 변경합니다.</p>
+<ul>
+<li>prihana의 유저를 root로 스위치 후, 스니펫 생성을 위한 폴더를 생성 합니다</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su -
+mkdir -p /hana/shared/script/
+cd /hana/shared/script/
+</code></pre></div><ul>
+<li>VI 편집기를 이용하여, 아래와 같이 스니펫 생성을 생성 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vi crm-SAPHana-update.txt
+
+primitive rsc_SAPHana_HDB_HDB00 ocf:suse:SAPHana <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    operations $id<span style="color:#f92672">=</span>rsc_sap_HDB_HDB00-operations <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    op start interval<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">3600</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    op stop interval<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">3600</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    op promote interval<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">3600</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    op monitor interval<span style="color:#f92672">=</span><span style="color:#ae81ff">60</span> role<span style="color:#f92672">=</span>Master timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">700</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    op monitor interval<span style="color:#f92672">=</span><span style="color:#ae81ff">61</span> role<span style="color:#f92672">=</span>Slave timeout<span style="color:#f92672">=</span><span style="color:#ae81ff">700</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    params SID<span style="color:#f92672">=</span>HDB InstanceNumber<span style="color:#f92672">=</span><span style="color:#ae81ff">00</span> PREFER_SITE_TAKEOVER<span style="color:#f92672">=</span>false DUPLICATE_PRIMARY_TIMEOUT<span style="color:#f92672">=</span><span style="color:#ae81ff">7200</span> AUTOMATED_REGISTER<span style="color:#f92672">=</span>true
+</code></pre></div><p><img src="images/08.png" alt="image08"></p>
+<ul>
+<li>생성한 스니펫을 crm에 반영 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm configure load update crm-SAPHana-update.txt
+</code></pre></div><ul>
+<li>업데이트 된 crm 설정을 확인 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm config show
+</code></pre></div><p><img src="images/09.png" alt="image09"></p>
+</li>
+<li>
+<p>prihana에서 root 유저로, Cluster에 QAS HANA DB를 위한 리소스를 등록 합니다.</p>
+<ul>
+<li>VI 편집기를 이용하여, 아래와 같이 스니펫 생성을 생성 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vi crm-qas.txt
+
+primitive rsc_SAP_QAS_HDB10 ocf:heartbeat:SAPDatabase <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  params DBTYPE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;HDB&#34;</span> SID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;QAS&#34;</span> InstanceNumber<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  MONITOR_SERVICES<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hdbindexserver|hdbnameserver&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  op start interval<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> timeout<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;600&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  op monitor interval<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;120&#34;</span> timeout<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;700&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  op stop interval<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;0&#34;</span> timeout<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;300&#34;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  meta priority<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;100&#34;</span>
+</code></pre></div><p><img src="images/10.png" alt="image10"></p>
+<ul>
+<li>생성한 스니펫을 crm에 반영 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm configure load update crm-qas.txt
+</code></pre></div><p><img src="images/11.png" alt="image11"></p>
+</li>
+<li>
+<p>prihana에서 root 유저로, 새로 생성한 QAS HANA DB 리소스 제약사항을 설정 합니다.</p>
+<ul>
+<li>VI 편집기를 이용하여, 아래와 같이 스니펫 생성을 생성 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vi crm-cs-qas.txt
+
+location loc_QAS_never_on_prihana rsc_SAP_QAS_HDB10 -inf: prihana
+colocation col_QAS_never_with_AWS_IP -inf: rsc_SAP_QAS_HDB10:Started <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>res_AWS_IP
+order ord_QASstop_before_HDB-promote inf: rsc_SAP_QAS_HDB10:stop <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>msl_SAPHana_HDB_HDB00:promote
+</code></pre></div><p><img src="images/12.png" alt="image12"></p>
+<ul>
+<li>생성한 스니펫을 crm에 반영 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm configure load update crm-cs-qas.txt
+</code></pre></div><ul>
+<li>업데이트 된 crm 설정을 확인 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm config show
+</code></pre></div><p><img src="images/13.png" alt="image13">
+<img src="images/14.png" alt="image14"></p>
+</li>
+<li>
+<p>prihana에서 root 유저로, Cluster Maintenance 모드를 해제하고 정상적으로 설정 되었는지를 모니터링 합니다.</p>
+<ul>
+<li>Cluster Maintenance 모드를 해제합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm node ready prihana
+crm node ready sechana
+</code></pre></div><ul>
+<li>Cluster 상태를 모니터링 합니다. QAS HANA DB 리소스가 정상적으로 <strong>Started</strong> 되었는지 확인 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">crm_mon -rfn1
+</code></pre></div><p><img src="images/15.png" alt="image15"></p>
+<ul>
+<li>HSR 상태를 모니터링 합니다. sechana의 status가 <strong>SOK</strong> 상태인지 확인 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">SAPHanaSR-showAttr
+</code></pre></div><p><img src="images/16.png" alt="image16"></p>
+</li>
+<li>
+<p>sechana에서 qasadm 유저로, QAS HANA DB가 정상적으로 기동 되었는지 확인 합니다.</p>
+<ul>
+<li>HDB process 들이 정상적으로 기동 되었는지 확인 합니다.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo su - qasadm
+HDB info
+</code></pre></div><p><img src="images/17.png" alt="image17"></p>
+</li>
+</ol>
+<hr>
+<!-- raw HTML omitted -->
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/lab5/lab5-2/" title="Task 02. Install SAP HANA DATABASE (QAS)"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/lab5/lab5-4/" title="Task 04. Test Cluseter" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1602943139"></script>
+    <script src="/js/perfect-scrollbar.min.js?1602943139"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1602943139"></script>
+    <script src="/js/jquery.sticky.js?1602943139"></script>
+    <script src="/js/featherlight.min.js?1602943139"></script>
+    <script src="/js/highlight.pack.js?1602943139"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1602943139"></script>
+    <script src="/js/learn.js?1602943139"></script>
+    <script src="/js/hugo-learn.js?1602943139"></script>
+
+    <link href="/mermaid/mermaid.css?1602943139" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1602943139"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+  </body>
+</html>
